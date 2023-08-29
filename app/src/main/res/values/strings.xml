@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+<!--  list_post  -->
+    <string name="post_slice">|</string>
+    <string name="donating">모금 중</string>
+    <string name="donated">모금 완료</string>
+
+<!--  fragment_home  -->
+    <string name="today_event"><b>오늘의 이벤트</b></string>
+
+</resources>
