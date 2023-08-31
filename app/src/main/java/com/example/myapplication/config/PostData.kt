@@ -1,4 +1,4 @@
-package com.example.myapplication.src.main.home
+package com.example.myapplication.config
 
 import android.media.Image
 
