@@ -1,6 +1,5 @@
-package com.example.myapplication.src.main.home
+package com.example.myapplication.config
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.graphics.drawable.toDrawable

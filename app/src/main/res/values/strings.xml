@@ -9,4 +9,22 @@
 <!--  fragment_home  -->
     <string name="today_event"><b>오늘의 이벤트</b></string>
 
+<!--  fragment_heart  -->
+    <string name="my_favorite"><b>관심 이벤트</b></string>
+
+<!--  activity_add  -->
+    <string name="event_register">이벤트 등록하기</string>
+    <string name="open_event"><b>공개 이벤트</b></string>
+    <string name="open_event_content">누구나 자유롭게 참여할 수 있어요!</string>
+    <string name="closed_event"><b>비공개 이벤트</b></string>
+    <string name="closed_event_content">우리끼리만 즐길래요! \n 인증 절차를 거친 사람만 참여할 수 있어요!</string>
+    <string name="next"><b>다음</b></string>
+
+<!--  activity_picture  -->
+    <string name="picture_title"><b>참여자 인증 사진 등록</b></string>
+    <string name="picture_content">참여자에게 예시로 제시할 사진을 등록해주세요</string>
+    <string name="picture_register"><b>등록</b></string>
+    <string name="picture_hint">사진 파일명</string>
+
+<!--  activity_add_info  -->
 </resources>
