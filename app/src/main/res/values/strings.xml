@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
 
+<!--  activity_base  -->
+    <string name="fill_all">모든 정보를 입력해주세요.</string>
+    <string name="fill_picture">사진을 등록해주세요.</string>
+
 <!--  list_post  -->
     <string name="post_slice">|</string>
     <string name="donating">모금 중</string>
@@ -27,4 +31,38 @@
     <string name="picture_hint">사진 파일명</string>
 
 <!--  activity_add_info  -->
+    <string name="add_info_twt_name"><b>개최자 트위터 닉네임</b></string>
+    <string name="add_info_twt_id"><b>개최자 트위터 아이디</b></string>
+    <string name="add_info_title"><b>제목</b></string>
+    <string name="add_info_main"><b>이벤트 주인공</b></string>
+    <string name="add_info_category"><b>카테고리</b></string>
+    <string name="add_info_date"><b>날짜</b></string>
+    <string name="add_info_place"><b>장소</b></string>
+    <string name="add_info_idol">아이돌</string>
+    <string name="add_info_actor">배우</string>
+    <string name="add_info_virtual">버츄얼</string>
+    <string name="add_info_anime">애니</string>
+    <string name="add_info_sports">스포츠</string>
+    <string name="add_info_etc">기타</string>
+
+<!--  activity_main_picture  -->
+    <string name="main_picture_title"><b>대표 사진 등록</b></string>
+    <string name="main_picture_content">게시물에서 보일 사진을 등록해주세요</string>
+    <string name="finish"><b>완료</b></string>
+
+<!--  activity_gift_picture  -->
+    <string name="gift_picture_title"><b>특전 사진 등록</b></string>
+    <string name="gift_picture_content">참여자에게 선물로 나눔할 사진을 등록해주세요</string>
+
+<!--  activity_add_account  -->
+    <string name="add_account_money"><b>후원 받을 금액</b></string>
+    <string name="add_account_money_hint">후원은 필수가 아닙니다!</string>
+    <string name="add_account_name"><b>예금주</b></string>
+    <string name="add_account_name_hint">후원을 받는 경우에만 입력해주세요.</string>
+    <string name="add_account_account"><b>계좌</b></string>
+    
+<!--  activity_add_content  -->
+    <string name="add_content_title"><b>이벤트 설명</b></string>
+    <string name="add_content_hint">ex) 개최 취지, 후원 금액 사용 계획 등을 작성해주세요</string>
+    <string name="add_content_fill_all">이벤트에 대한 설명을 적어주세요.</string>
 </resources>

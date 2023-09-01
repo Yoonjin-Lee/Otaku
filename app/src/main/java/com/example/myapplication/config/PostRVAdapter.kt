@@ -1,5 +1,6 @@
 package com.example.myapplication.config
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.graphics.drawable.toDrawable
@@ -21,7 +22,8 @@ class PostRVAdapter(private val postList : ArrayList<PostData>) : RecyclerView.A
             }
             if (data.donation) {
                 binding.postBtnDonation.text = "모집 완료"
-                binding.postBtnDonation.background = R.drawable.btn_donated_shape.toDrawable()
+                binding.postBtnDonation.setBackgroundResource(R.drawable.btn_donated_shape)
+                binding.postBtnDonation.setTextColor(Color.WHITE)
                 binding.postBtnDonation.setOnClickListener {
                     // 게시물 화면으로 넘어가기
                 }

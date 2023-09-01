@@ -2,6 +2,7 @@ package com.example.myapplication.src.login
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import android.os.Bundle
 import android.util.Log
 import com.example.myapplication.config.BaseActivity
@@ -50,6 +51,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 
                         //서버 통신 완료 후 넘어 가기
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
                         startActivity(intent)
                     }
                 }
@@ -86,6 +88,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 
                             //서버 통신 완료 후 넘어 가기
                             val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
                             startActivity(intent)
                         }
                     }
