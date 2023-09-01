@@ -1,6 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/search_img_logo"
+        android:layout_width="119dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/o_taku"
+        android:layout_marginStart="19dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/search_img_logo"
+        android:background="@drawable/btn_donating_shape"
+        android:layout_marginHorizontal="19dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/search_search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="9dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/search_btn_idol"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_idol"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:id="@+id/search_btn_actor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_actor"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/search_btn_virtual"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_virtual"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:id="@+id/search_btn_anime"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_anime"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/search_btn_sports"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_sports"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:id="@+id/search_btn_etc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_etc"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

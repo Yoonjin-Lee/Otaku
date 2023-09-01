@@ -1,16 +1,18 @@
-package com.example.myapplication.src.main.home.picture
+package com.example.myapplication.src.main.home.mainPicture
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
+import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
-import com.example.myapplication.databinding.ActivityPictureBinding
-import com.example.myapplication.src.main.home.addInfo.AddInfoActivity
+import com.example.myapplication.databinding.ActivityMainPictureBinding
+import com.example.myapplication.src.main.MainActivity
 
-class PictureActivity : BaseActivity<ActivityPictureBinding>(ActivityPictureBinding::inflate) {
+class MainPictureActivity : BaseActivity<ActivityMainPictureBinding>(ActivityMainPictureBinding::inflate)  {
     // Registers a photo picker activity launcher in single-select mode.
     val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
         // Callback is invoked after the user selects a media item or closes the
@@ -20,7 +22,7 @@ class PictureActivity : BaseActivity<ActivityPictureBinding>(ActivityPictureBind
 
             Glide.with(this)
                 .load(uri)
-                .into(binding.pictureImgShow)
+                .into(binding.mainPictureImgShow)
         } else {
             Log.d("PhotoPicker", "No media selected")
         }
@@ -29,17 +31,22 @@ class PictureActivity : BaseActivity<ActivityPictureBinding>(ActivityPictureBind
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.pictureBtnClose.setOnClickListener {
+        binding.mainPictureBtnClose.setOnClickListener {
             this.finish()
         }
 
-        binding.pictureBtnRegister.setOnClickListener {
+        binding.mainPictureBtnRegister.setOnClickListener {
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
 
-        binding.pictureBtnNext.setOnClickListener {
-            val intent = Intent(this, AddInfoActivity::class.java)
-            startActivity(intent)
+        binding.mainPictureBtnNext.setOnClickListener {
+            if (binding.mainPictureImgShow.resources != null){
+                val intent = Intent(this, MainActivity::class.java)
+                intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+            } else {
+                showToast(getString(R.string.fill_picture))
+            }
         }
     }
 }

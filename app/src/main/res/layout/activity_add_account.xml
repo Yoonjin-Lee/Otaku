@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/add_account_btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_arrow_black"
+        android:contentDescription="@string/next"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingStart="17dp"
+        android:paddingVertical="23dp"/>
+
+    <TextView
+        android:id="@+id/add_account_txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/event_register"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginVertical="23dp"/>
+
+    <View
+        android:id="@+id/add_account_view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/add_account_txt_title"
+        android:layout_marginTop="23dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/add_account_view_line"
+        app:layout_constraintBottom_toTopOf="@id/add_account_btn_next"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="25dp">
+
+        <TextView
+            android:id="@+id/add_account_txt_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_account_money"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/add_account_edit_money"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/btn_rectangle"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:hint="@string/add_account_money_hint"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/add_account_txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_account_name"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/add_account_edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/btn_rectangle"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:hint="@string/add_account_name_hint"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/add_account_txt_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_account_account"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/add_account_edit_account"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/btn_rectangle"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:hint="@string/add_account_name_hint"
+            android:layout_marginBottom="15dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/add_account_btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/btn_rectangle"
+        android:text="@string/next"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

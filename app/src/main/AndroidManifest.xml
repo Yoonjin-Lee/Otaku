@@ -52,6 +52,11 @@
         </activity>
         <activity android:name=".src.main.home.add.AddActivity"/>
         <activity android:name=".src.main.home.picture.PictureActivity"/>
+        <activity android:name=".src.main.home.addContent.AddContentActivity"/>
+        <activity android:name=".src.main.home.mainPicture.MainPictureActivity"/>
+        <activity android:name=".src.main.home.addAccount.AddAccountActivity"/>
+        <activity android:name=".src.main.home.addInfo.AddInfoActivity"/>
+        <activity android:name=".src.main.home.giftPicture.GiftPictureActivity"/>
     </application>
 
 </manifest>
