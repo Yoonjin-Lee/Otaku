@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -14,15 +17,17 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
 
-        <service android:name="com.google.android.gms.metadata.ModuleDependencies"
-            android:enabled="false"
-            android:exported="false"
-            tools:ignore="MissingClass">
-            <intent-filter>
-                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
-            </intent-filter>
-            <meta-data android:name="photopicker_activity:0:required" android:value="" />
-        </service>
+<!--        <service android:name="com.google.android.gms.metadata.ModuleDependencies"-->
+<!--            android:enabled="false"-->
+<!--            android:exported="false"-->
+<!--            tools:ignore="MissingClass">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />-->
+<!--            </intent-filter>-->
+<!--            <meta-data android:name="photopicker_activity:0:required" android:value="" />-->
+<!--        </service>-->
+
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="0b6120b496785aece22be5c346493385"/>
 
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
@@ -39,11 +44,7 @@
         <activity
             android:name=".src.main.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".config.BaseActivity"/>
         <activity android:name=".src.login.LoginActivity"
@@ -57,6 +58,17 @@
         <activity android:name=".src.main.home.addAccount.AddAccountActivity"/>
         <activity android:name=".src.main.home.addInfo.AddInfoActivity"/>
         <activity android:name=".src.main.home.giftPicture.GiftPictureActivity"/>
+        <activity android:name=".src.main.search.category.CategoryActivity"/>
+        <activity android:name=".src.main.search.map.MapActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".src.main.search.post.PostActivity"/>
     </application>
 
 </manifest>

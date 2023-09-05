@@ -65,4 +65,10 @@
     <string name="add_content_title"><b>이벤트 설명</b></string>
     <string name="add_content_hint">ex) 개최 취지, 후원 금액 사용 계획 등을 작성해주세요</string>
     <string name="add_content_fill_all">이벤트에 대한 설명을 적어주세요.</string>
+
+<!--  activity_map  -->
+    <string name="map_drag_title"><b>이벤트 리스트</b></string>
+
+<!--  map_balloon  -->
+
 </resources>

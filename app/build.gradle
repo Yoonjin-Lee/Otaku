@@ -37,11 +37,15 @@ android {
 }
 
 dependencies {
+    //slideuppanel
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+
     //glide -> 이미지 로드 라이브러리
     implementation 'com.github.bumptech.glide:glide:4.16.0'
 
     //kakao
     implementation "com.kakao.sdk:v2-all:2.15.0" // 전체 모듈 설치, 2.11.0 버전부터 지원
+    implementation files('libs/libDaumMapAndroid.jar')
 
     // retrofit2
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'

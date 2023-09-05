@@ -37,176 +37,193 @@
         app:layout_constraintTop_toBottomOf="@id/info_txt_title"
         android:layout_marginTop="23dp"/>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/info_view_line"
         app:layout_constraintBottom_toTopOf="@id/info_btn_next"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginHorizontal="25dp">
-
-        <TextView
-            android:id="@+id/info_txt_twit_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_info_twt_name"
-            android:textColor="@color/black"
-            android:textSize="14sp"/>
-
-        <EditText
-            android:id="@+id/info_add_edit_twt_name"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/btn_rectangle"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:layout_marginBottom="15dp"/>
-
-        <TextView
-            android:id="@+id/info_txt_twit_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_info_twt_id"
-            android:textColor="@color/black"
-            android:textSize="14sp"/>
-
-        <EditText
-            android:id="@+id/info_add_edit_twt_id"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/btn_rectangle"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:layout_marginBottom="15dp"/>
-
-        <TextView
-            android:id="@+id/info_txt_post_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_info_title"
-            android:textColor="@color/black"
-            android:textSize="14sp"/>
-
-        <EditText
-            android:id="@+id/info_add_edit_post_title"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/btn_rectangle"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:layout_marginBottom="15dp"/>
-
-        <TextView
-            android:id="@+id/info_txt_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_info_main"
-            android:textColor="@color/black"
-            android:textSize="14sp"/>
-
-        <EditText
-            android:id="@+id/info_add_edit_main"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/btn_rectangle"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:layout_marginBottom="15dp"/>
-
-        <TextView
-            android:id="@+id/info_txt_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_info_category"
-            android:textColor="@color/black"
-            android:textSize="14sp"/>
-
+        android:layout_marginBottom="5dp"
+        android:gravity="center">
+        
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
 
-            <Button
-                android:id="@+id/add_info_btn_category_idol"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/add_info_idol"
-                android:background="@drawable/btn_rectangle"
-                android:layout_weight="1"/>
+                android:orientation="vertical"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="25dp">
 
-            <Button
-                android:id="@+id/add_info_btn_category_actor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_info_actor"
-                android:background="@drawable/btn_rectangle"
-                android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/info_txt_twit_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_info_twt_name"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
 
-            <Button
-                android:id="@+id/add_info_btn_category_virtual"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_info_virtual"
-                android:background="@drawable/btn_rectangle"
-                android:layout_weight="1"/>
+                <EditText
+                    android:id="@+id/info_add_edit_twt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/btn_rectangle"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:layout_marginBottom="15dp"/>
 
-            <Button
-                android:id="@+id/add_info_btn_category_anime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_info_anime"
-                android:background="@drawable/btn_rectangle"
-                android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/info_txt_twit_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_info_twt_id"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
 
-            <Button
-                android:id="@+id/add_info_btn_category_sports"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_info_sports"
-                android:background="@drawable/btn_rectangle"
-                android:layout_weight="1"/>
+                <EditText
+                    android:id="@+id/info_add_edit_twt_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/btn_rectangle"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:layout_marginBottom="15dp"/>
 
-            <Button
-                android:id="@+id/add_info_btn_category_etc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_info_etc"
-                android:background="@drawable/btn_rectangle"
-                android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/info_txt_post_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_info_title"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
+
+                <EditText
+                    android:id="@+id/info_add_edit_post_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/btn_rectangle"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:id="@+id/info_txt_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_info_main"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
+
+                <EditText
+                    android:id="@+id/info_add_edit_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/btn_rectangle"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:id="@+id/info_txt_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_info_category"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/add_info_btn_category_idol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_info_idol"
+                        android:background="@drawable/btn_rectangle"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/add_info_btn_category_actor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_info_actor"
+                        android:background="@drawable/btn_rectangle"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/add_info_btn_category_virtual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_info_virtual"
+                        android:background="@drawable/btn_rectangle"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/add_info_btn_category_anime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_info_anime"
+                        android:background="@drawable/btn_rectangle"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/add_info_btn_category_sports"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_info_sports"
+                        android:background="@drawable/btn_rectangle"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/add_info_btn_category_etc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_info_etc"
+                        android:background="@drawable/btn_rectangle"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/info_txt_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_info_date"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginTop="15dp"/>
+
+                <EditText
+                    android:id="@+id/info_add_edit_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/btn_rectangle"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:id="@+id/info_txt_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_info_place"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
+
+                <EditText
+                    android:id="@+id/info_add_edit_place"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/btn_rectangle"
+                    tools:ignore="SpeakableTextPresentCheck"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/info_txt_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_info_date"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:layout_marginTop="15dp"/>
-
-        <EditText
-            android:id="@+id/info_add_edit_date"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/btn_rectangle"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:layout_marginBottom="15dp"/>
-
-        <TextView
-            android:id="@+id/info_txt_place"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_info_place"
-            android:textColor="@color/black"
-            android:textSize="14sp"/>
-
-        <EditText
-            android:id="@+id/info_add_edit_place"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/btn_rectangle"
-            tools:ignore="SpeakableTextPresentCheck"/>
-
-    </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/info_btn_next"
