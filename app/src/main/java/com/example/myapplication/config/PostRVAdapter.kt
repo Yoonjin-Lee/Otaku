@@ -17,6 +17,15 @@ class PostRVAdapter(private val postList : ArrayList<PostData>) : RecyclerView.A
             binding.postName.text = data.name
             binding.postId.text = data.id
             binding.postMain.text = data.main
+            binding.postBtnHeart.setOnClickListener {
+                if (data.heart){
+                    binding.postBtnHeart.setImageResource(R.drawable.favorite_border_black_48dp)
+                    data.heart = false
+                } else{
+                    binding.postBtnHeart.setImageResource(R.drawable.favorite_black_48dp)
+                    data.heart = true
+                }
+            }
             if (data.heart) {
                 binding.postBtnHeart.setImageResource(R.drawable.favorite_black_48dp)
             }

@@ -8,6 +8,6 @@ data class PostData (
     val name : String,
     val id : String,
     val main : String,
-    val heart : Boolean,
+    var heart : Boolean,
     val donation : Boolean
         )
