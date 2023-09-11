@@ -39,7 +39,7 @@ class GiftPictureActivity : BaseActivity<ActivityGiftPictureBinding>(ActivityGif
         }
 
         binding.giftPictureBtnNext.setOnClickListener {
-            if (binding.giftPictureImgShow.resources != null){
+            if (binding.giftPictureImgShow.drawable != null){
                 val intent = Intent(this, AddAccountActivity::class.java)
                 startActivity(intent)
             } else {
