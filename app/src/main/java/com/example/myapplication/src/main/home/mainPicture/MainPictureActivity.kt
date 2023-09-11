@@ -40,7 +40,7 @@ class MainPictureActivity : BaseActivity<ActivityMainPictureBinding>(ActivityMai
         }
 
         binding.mainPictureBtnNext.setOnClickListener {
-            if (binding.mainPictureImgShow.resources != null){
+            if (binding.mainPictureImgShow.drawable != null){
                 val intent = Intent(this, MainActivity::class.java)
                 intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)

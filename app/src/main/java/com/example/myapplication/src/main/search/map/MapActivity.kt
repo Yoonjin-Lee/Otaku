@@ -1,5 +1,6 @@
 package com.example.myapplication.src.main.search.map
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.config.PostData
 import com.example.myapplication.config.PostRVAdapter
 import com.example.myapplication.databinding.ActivityMapBinding
+import com.example.myapplication.src.main.search.post.PostActivity
 import net.daum.mf.map.api.CalloutBalloonAdapter
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
@@ -171,6 +173,8 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
         p1: MapPOIItem?,
         p2: MapPOIItem.CalloutBalloonButtonType?
     ) {
+        val intent = Intent(this, PostActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onDraggablePOIItemMoved(p0: MapView?, p1: MapPOIItem?, p2: MapPoint?) {

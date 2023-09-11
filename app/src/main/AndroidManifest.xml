@@ -69,6 +69,8 @@
 
         </activity>
         <activity android:name=".src.main.search.post.PostActivity"/>
+        <activity android:name=".src.main.search.post.donate.DonateActivity"/>
+        <activity android:name=".src.main.search.post.join.JoinActivity"/>
     </application>
 
 </manifest>
