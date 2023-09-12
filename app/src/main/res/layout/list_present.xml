@@ -6,7 +6,7 @@
     android:background="@drawable/btn_rectangle">
 
     <TextView
-        android:id="@+id/list_admission_txt_title"
+        android:id="@+id/list_present_txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="제목"
@@ -26,14 +26,14 @@
         android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/list_admission_txt_title"
+        app:layout_constraintTop_toBottomOf="@id/list_present_txt_title"
         android:layout_marginStart="9dp"/>
 
     <Button
-        android:id="@+id/list_admission_btn"
+        android:id="@+id/list_present_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/list_admission"
+        android:text="@string/list_look"
         android:textSize="14sp"
         android:textColor="@color/black"
         android:minWidth="48dp"
