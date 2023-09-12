@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/search_img_logo"
         android:background="@drawable/btn_donating_shape"
-        android:layout_marginHorizontal="19dp"/>
+        android:layout_marginHorizontal="19dp"
+        app:iconifiedByDefault="false"/>
 
     <LinearLayout
         android:layout_width="match_parent"

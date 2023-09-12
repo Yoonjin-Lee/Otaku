@@ -87,4 +87,11 @@
     <string name="donate_step2_info2">* 예시와 같이 정상적인 입금 화면이 보이도록 스크린샷을 찍어주셔야 합니다.</string>
     <string name="donate_step3"><b>Step3.</b> 후원 금액 입력하기</string>
     <string name="donate_register"><b>등록하기</b></string>
+
+<!--  fragment_my_page  -->
+    <string name="my_page_register">개최자 등록</string>
+    <string name="my_page_admission">입장권</string>
+    <string name="my_page_present">특전</string>
+    <string name="my_page_event_manage">이벤트 관리</string>
+    <string name="my_page_manage">관리</string>
 </resources>
