@@ -76,7 +76,7 @@
         android:id="@+id/post_btn_heart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="#00000000"
         android:contentDescription="@string/app_name"
         android:paddingStart="28dp"
         android:paddingBottom="28dp"
