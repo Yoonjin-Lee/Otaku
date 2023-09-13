@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/list_admission_txt_date"
+        android:id="@+id/list_present_txt_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="개최일"

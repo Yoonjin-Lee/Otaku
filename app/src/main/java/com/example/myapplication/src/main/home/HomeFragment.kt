@@ -33,7 +33,7 @@ class HomeFragment :
             )
         }
 
-        val postRVAdapter = PostRVAdapter(postList)
+        val postRVAdapter = PostRVAdapter(postList, requireContext())
 
         binding.homeRv.adapter = postRVAdapter
         binding.homeRv.layoutManager = LinearLayoutManager(context)
