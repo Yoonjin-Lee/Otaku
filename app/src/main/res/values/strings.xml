@@ -98,4 +98,12 @@
 <!--  list_admission  -->
     <string name="list_admission">입장</string>
     <string name="list_look">보기</string>
+
+<!--  activity_admission  -->
+    <string name="admission_title"><b>입장권</b></string>
+    <string name="admission_input">입력</string>
+    <string name="admission_hint">입장 코드를 입력해주세요</string>
+
+<!--  activity_scratch  -->
+    <string name="scratch_check"><b>이미지 저장</b></string>
 </resources>

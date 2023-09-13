@@ -47,7 +47,7 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(ActivityResultBinding
             )
         }
 
-        val postRVAdapter = PostRVAdapter(postList)
+        val postRVAdapter = PostRVAdapter(postList, this)
 
         binding.resultRv.adapter = postRVAdapter
         binding.resultRv.layoutManager = LinearLayoutManager(this)

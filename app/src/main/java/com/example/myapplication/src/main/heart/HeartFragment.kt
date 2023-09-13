@@ -30,7 +30,7 @@ class HeartFragment : BaseFragment<FragmentHeartBinding>(FragmentHeartBinding::b
             )
         }
 
-        val postRVAdapter = PostRVAdapter(postList)
+        val postRVAdapter = PostRVAdapter(postList, requireContext())
 
         binding.heartRv.adapter = postRVAdapter
         binding.heartRv.layoutManager = LinearLayoutManager(context)

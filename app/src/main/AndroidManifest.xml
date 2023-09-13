@@ -75,6 +75,9 @@
         <activity android:name=".src.main.search.post.donate.DonateActivity"/>
         <activity android:name=".src.main.search.post.join.JoinActivity"/>
         <activity android:name=".src.main.search.result.ResultActivity"/>
+        <activity android:name=".src.main.mypage.admission.AdmissionActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".src.main.mypage.admission.scratch.ScratchActivity"/>
+        <activity android:name=".src.main.mypage.present.PresentActivity"/>
     </application>
 
 </manifest>

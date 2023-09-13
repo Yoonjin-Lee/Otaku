@@ -91,7 +91,7 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
             )
         }
 
-        val postRVAdapter = PostRVAdapter(postList)
+        val postRVAdapter = PostRVAdapter(postList, this)
         binding.mapRv.adapter = postRVAdapter
         binding.mapRv.layoutManager = LinearLayoutManager(this)
 
