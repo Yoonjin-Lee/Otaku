@@ -106,4 +106,8 @@
 
 <!--  activity_scratch  -->
     <string name="scratch_check"><b>이미지 저장</b></string>
+
+<!--  activity_present  -->
+    <string name="present_title">특전</string>
+    <string name="present_save">저장</string>
 </resources>
