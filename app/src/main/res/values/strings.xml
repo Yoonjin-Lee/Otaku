@@ -108,6 +108,17 @@
     <string name="scratch_check"><b>이미지 저장</b></string>
 
 <!--  activity_present  -->
-    <string name="present_title">특전</string>
+    <string name="present_title"><b>특전</b></string>
     <string name="present_save">저장</string>
+
+<!--  activity_manage  -->
+    <string name="manage_title"><b>이벤트 관리</b></string>
+
+<!--  list_manage  -->
+    <string name="manage_btn">관리하기</string>
+
+<!--  activity_manage_select  -->
+    <string name="manage_donation"><b>후원 관리</b></string>
+    <string name="manage_participate"><b>참여자 관리</b></string>
+    <string name="manage_code">입장 코드</string>
 </resources>

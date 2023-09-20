@@ -78,6 +78,7 @@
         <activity android:name=".src.main.mypage.admission.AdmissionActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".src.main.mypage.admission.scratch.ScratchActivity"/>
         <activity android:name=".src.main.mypage.present.PresentActivity"/>
+        <activity android:name=".src.main.mypage.manage.ManageActivity"/>
     </application>
 
 </manifest>
