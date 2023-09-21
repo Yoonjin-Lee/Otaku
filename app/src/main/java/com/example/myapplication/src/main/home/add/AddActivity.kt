@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityAddBinding
-import com.example.myapplication.src.main.home.addInfo.AddInfoActivity
-import com.example.myapplication.src.main.home.picture.PictureActivity
+import com.example.myapplication.src.main.home.add.addInfo.AddInfoActivity
+import com.example.myapplication.src.main.home.add.picture.PictureActivity
 
 class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {

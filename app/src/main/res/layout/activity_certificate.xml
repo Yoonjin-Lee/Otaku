@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/certificate_btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_arrow_black"
+        android:contentDescription="@string/next"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingStart="17dp"
+        android:paddingVertical="23dp"/>
+
+    <TextView
+        android:id="@+id/certificate_txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/certificate_title"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginVertical="23dp"/>
+
+    <View
+        android:id="@+id/certificate_view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/certificate_txt_title"
+        android:layout_marginTop="23dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/certificate_view_line"
+        app:layout_constraintBottom_toTopOf="@id/certificate_btn_check">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/certificate_txt_info1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/certificate_info1"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginHorizontal="18dp"
+                    android:layout_marginTop="18dp"/>
+
+                <TextView
+                    android:id="@+id/certificate_txt_info2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/certificate_info2"
+                    android:textColor="@color/deep_gray"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/certificate_txt_info1"
+                    android:layout_marginHorizontal="18dp"/>
+
+                <ImageView
+                    android:id="@+id/certificate_frame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/frame"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/certificate_btn_register"
+                    app:layout_constraintTop_toBottomOf="@id/certificate_txt_info2"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/certificate_img_show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ex"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/certificate_frame"
+                    app:layout_constraintBottom_toBottomOf="@id/certificate_frame"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <Button
+                    android:id="@+id/certificate_btn_register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/donate_register"
+                    android:textColor="@color/white"
+                    android:background="@drawable/btn_rectangle"
+                    android:backgroundTint="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/certificate_frame"
+                    app:layout_constraintStart_toStartOf="@id/certificate_frame"
+                    app:layout_constraintEnd_toEndOf="@id/certificate_frame"
+                    android:layout_marginTop="40dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/certificate_btn_check"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="@string/donation_check"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/white"
+        android:elevation="20dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

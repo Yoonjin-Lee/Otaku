@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ListManageBinding
-import com.example.myapplication.src.main.mypage.manageSelect.ManageSelectActivity
+import com.example.myapplication.src.main.mypage.manage.manageSelect.ManageSelectActivity
 
 class ManageRVAdapter(private val itemList : ArrayList<ManageData>, val context : Context) : RecyclerView.Adapter<ManageRVAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: ListManageBinding) :

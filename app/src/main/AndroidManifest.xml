@@ -59,12 +59,12 @@
 
         </activity>
         <activity android:name=".src.main.home.add.AddActivity"/>
-        <activity android:name=".src.main.home.picture.PictureActivity"/>
-        <activity android:name=".src.main.home.addContent.AddContentActivity"/>
-        <activity android:name=".src.main.home.mainPicture.MainPictureActivity"/>
-        <activity android:name=".src.main.home.addAccount.AddAccountActivity"/>
-        <activity android:name=".src.main.home.addInfo.AddInfoActivity"/>
-        <activity android:name=".src.main.home.giftPicture.GiftPictureActivity"/>
+        <activity android:name=".src.main.home.add.picture.PictureActivity"/>
+        <activity android:name=".src.main.home.add.addContent.AddContentActivity"/>
+        <activity android:name=".src.main.home.add.mainPicture.MainPictureActivity"/>
+        <activity android:name=".src.main.home.add.addAccount.AddAccountActivity"/>
+        <activity android:name=".src.main.home.add.addInfo.AddInfoActivity"/>
+        <activity android:name=".src.main.home.add.giftPicture.GiftPictureActivity"/>
         <activity android:name=".src.main.search.category.CategoryActivity"/>
         <activity android:name=".src.main.search.map.MapActivity"
             android:exported="true">

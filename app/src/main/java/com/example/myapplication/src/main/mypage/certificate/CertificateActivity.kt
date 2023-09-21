@@ -1,16 +1,14 @@
-package com.example.myapplication.src.main.home.picture
+package com.example.myapplication.src.main.mypage.certificate
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.example.myapplication.config.BaseActivity
-import com.example.myapplication.databinding.ActivityPictureBinding
-import com.example.myapplication.src.main.home.addInfo.AddInfoActivity
+import com.example.myapplication.databinding.ActivityCertificateBinding
 
-class PictureActivity : BaseActivity<ActivityPictureBinding>(ActivityPictureBinding::inflate) {
+class CertificateActivity : BaseActivity<ActivityCertificateBinding>(ActivityCertificateBinding::inflate) {
     // Registers a photo picker activity launcher in single-select mode.
     val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
         // Callback is invoked after the user selects a media item or closes the
@@ -20,7 +18,7 @@ class PictureActivity : BaseActivity<ActivityPictureBinding>(ActivityPictureBind
 
             Glide.with(this)
                 .load(uri)
-                .into(binding.pictureImgShow)
+                .into(binding.certificateImgShow)
         } else {
             Log.d("PhotoPicker", "No media selected")
         }
@@ -29,17 +27,16 @@ class PictureActivity : BaseActivity<ActivityPictureBinding>(ActivityPictureBind
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.pictureBtnClose.setOnClickListener {
+        binding.certificateBtnClose.setOnClickListener {
             this.finish()
         }
 
-        binding.pictureBtnRegister.setOnClickListener {
+        binding.certificateBtnRegister.setOnClickListener {
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
 
-        binding.pictureBtnNext.setOnClickListener {
-            val intent = Intent(this, AddInfoActivity::class.java)
-            startActivity(intent)
+        binding.certificateBtnCheck.setOnClickListener {
+            // 서버로 데이터 보내기
         }
     }
 }

@@ -1,11 +1,11 @@
-package com.example.myapplication.src.main.home.addAccount
+package com.example.myapplication.src.main.home.add.addAccount
 
 import android.content.Intent
 import android.os.Bundle
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityAddAccountBinding
-import com.example.myapplication.src.main.home.addContent.AddContentActivity
+import com.example.myapplication.src.main.home.add.addContent.AddContentActivity
 
 class AddAccountActivity :
     BaseActivity<ActivityAddAccountBinding>(ActivityAddAccountBinding::inflate) {

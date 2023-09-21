@@ -121,4 +121,19 @@
     <string name="manage_donation"><b>후원 관리</b></string>
     <string name="manage_participate"><b>참여자 관리</b></string>
     <string name="manage_code">입장 코드</string>
+    
+<!--  activity_manage_donation  -->
+    <string name="manage_donation_list"><b>후원 목록</b></string>
+
+<!--  list_donation  -->
+    <string name="donation_check">확인</string>
+
+<!--  activity_manage_participate  -->
+    <string name="partificate_list"><b>참여자 목록</b></string>
+
+<!--  activity_certificate  -->
+    <string name="certificate_title"><b>개최자 인증</b></string>
+    <string name="certificate_info1"><b>트위터 프로필 화면 캡처를 통해
+예시와 같이 등록해주세요</b></string>
+    <string name="certificate_info2">캡처가 제대로 되지 않은 경우 인증이 어려울 수 있습니다.</string>
 </resources>
