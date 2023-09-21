@@ -1,4 +1,4 @@
-package com.example.myapplication.src.main.home.giftPicture
+package com.example.myapplication.src.main.home.add.giftPicture
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityGiftPictureBinding
-import com.example.myapplication.src.main.home.addAccount.AddAccountActivity
+import com.example.myapplication.src.main.home.add.addAccount.AddAccountActivity
 
 class GiftPictureActivity : BaseActivity<ActivityGiftPictureBinding>(ActivityGiftPictureBinding::inflate) {
     // Registers a photo picker activity launcher in single-select mode.

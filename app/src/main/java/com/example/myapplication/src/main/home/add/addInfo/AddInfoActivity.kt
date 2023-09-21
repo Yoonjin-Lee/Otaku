@@ -1,4 +1,4 @@
-package com.example.myapplication.src.main.home.addInfo
+package com.example.myapplication.src.main.home.add.addInfo
 
 import android.content.Intent
 import android.graphics.Color
@@ -7,7 +7,7 @@ import android.widget.Button
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityAddInfoBinding
-import com.example.myapplication.src.main.home.giftPicture.GiftPictureActivity
+import com.example.myapplication.src.main.home.add.giftPicture.GiftPictureActivity
 
 class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {

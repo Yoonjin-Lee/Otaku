@@ -1,11 +1,11 @@
-package com.example.myapplication.src.main.home.addContent
+package com.example.myapplication.src.main.home.add.addContent
 
 import android.content.Intent
 import android.os.Bundle
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityAddContentBinding
-import com.example.myapplication.src.main.home.mainPicture.MainPictureActivity
+import com.example.myapplication.src.main.home.add.mainPicture.MainPictureActivity
 
 class AddContentActivity : BaseActivity<ActivityAddContentBinding>(ActivityAddContentBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {

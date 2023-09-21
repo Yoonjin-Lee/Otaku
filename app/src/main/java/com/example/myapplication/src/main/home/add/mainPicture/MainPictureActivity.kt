@@ -1,4 +1,4 @@
-package com.example.myapplication.src.main.home.mainPicture
+package com.example.myapplication.src.main.home.add.mainPicture
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
