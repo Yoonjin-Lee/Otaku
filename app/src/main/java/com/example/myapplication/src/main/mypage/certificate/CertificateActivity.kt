@@ -1,10 +1,13 @@
 package com.example.myapplication.src.main.mypage.certificate
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.graphics.drawable.toDrawable
 import com.bumptech.glide.Glide
+import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityCertificateBinding
 
@@ -26,6 +29,10 @@ class CertificateActivity : BaseActivity<ActivityCertificateBinding>(ActivityCer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if(binding.certificateImgShow.drawable != R.drawable.twitter_ex.toDrawable()){
+            binding.certificateBtnCheck.isClickable = true
+        }
 
         binding.certificateBtnClose.setOnClickListener {
             this.finish()

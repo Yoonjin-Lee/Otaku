@@ -59,7 +59,6 @@
 
         </activity>
         <activity android:name=".src.main.home.add.AddActivity"/>
-        <activity android:name=".src.main.home.add.picture.PictureActivity"/>
         <activity android:name=".src.main.home.add.addContent.AddContentActivity"/>
         <activity android:name=".src.main.home.add.mainPicture.MainPictureActivity"/>
         <activity android:name=".src.main.home.add.addAccount.AddAccountActivity"/>
@@ -79,6 +78,13 @@
         <activity android:name=".src.main.mypage.admission.scratch.ScratchActivity"/>
         <activity android:name=".src.main.mypage.present.PresentActivity"/>
         <activity android:name=".src.main.mypage.manage.ManageActivity"/>
+        <activity android:name=".src.main.mypage.manage.manageDonation.ManageDonationActivity"/>
+        <activity android:name=".src.main.mypage.certificate.CertificateActivity"/>
+        <activity android:name=".src.main.mypage.manage.manageParticipate.ManageParticipateActivity"/>
+        <activity android:name=".src.main.mypage.manage.manageSelect.ManageSelectActivity"/>
+        <activity android:name=".src.main.mypage.manage.manageDonation.DonationDialog"
+            android:theme="@style/mytheme">
+        </activity>
     </application>
 
 </manifest>
