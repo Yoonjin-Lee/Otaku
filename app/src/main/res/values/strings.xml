@@ -129,7 +129,7 @@
     <string name="donation_check">확인</string>
 
 <!--  activity_manage_participate  -->
-    <string name="partificate_list"><b>참여자 목록</b></string>
+    <string name="participate_list"><b>참여자 목록</b></string>
 
 <!--  activity_certificate  -->
     <string name="certificate_title"><b>개최자 인증</b></string>

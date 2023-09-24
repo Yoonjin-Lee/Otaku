@@ -127,6 +127,7 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         android:backgroundTint="@color/white"
-        android:elevation="20dp"/>
+        android:elevation="20dp"
+        android:clickable="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

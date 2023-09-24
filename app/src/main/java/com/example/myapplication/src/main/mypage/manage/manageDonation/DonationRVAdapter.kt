@@ -8,13 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ListDonationBinding
 
 class DonationRVAdapter(private val itemList : ArrayList<DonationData>, val context : Context) : RecyclerView.Adapter<DonationRVAdapter.ViewHolder>() {
+    var p : Int = 0
     inner class ViewHolder(private val binding: ListDonationBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: DonationData) {
             binding.donationName.text = data.name
             binding.donationMoney.text = data.price
             binding.donationBtnCheck.setOnClickListener {
-
+                val intent = Intent(context, DonationDialog::class.java)
+                context.startActivity(intent)
             }
         }
     }
@@ -26,6 +28,7 @@ class DonationRVAdapter(private val itemList : ArrayList<DonationData>, val cont
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(itemList[position])
+        p = position
     }
 
     override fun getItemCount(): Int = itemList.size

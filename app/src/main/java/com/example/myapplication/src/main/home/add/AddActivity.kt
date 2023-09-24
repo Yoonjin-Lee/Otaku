@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityAddBinding
 import com.example.myapplication.src.main.home.add.addInfo.AddInfoActivity
-import com.example.myapplication.src.main.home.add.picture.PictureActivity
 
 class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +20,7 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         }
 
         binding.addBtnClosedEvent.setOnClickListener {
-            val intent = Intent(this, PictureActivity::class.java)
+            val intent = Intent(this, AddInfoActivity::class.java)
             startActivity(intent)
         }
 

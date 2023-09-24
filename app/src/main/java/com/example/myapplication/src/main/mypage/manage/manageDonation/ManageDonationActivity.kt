@@ -24,5 +24,7 @@ class ManageDonationActivity : BaseActivity<ActivityManageDonationBinding>(Activ
         binding.manageDonationRv.adapter = adapter
         binding.manageDonationRv.layoutManager = LinearLayoutManager(this)
         binding.manageDonationRv.addItemDecoration(RecyclerViewDecoration(8))
+
+
     }
 }
