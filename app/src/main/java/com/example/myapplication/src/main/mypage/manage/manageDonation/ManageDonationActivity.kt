@@ -25,6 +25,11 @@ class ManageDonationActivity : BaseActivity<ActivityManageDonationBinding>(Activ
         binding.manageDonationRv.layoutManager = LinearLayoutManager(this)
         binding.manageDonationRv.addItemDecoration(RecyclerViewDecoration(8))
 
-
+        DonationDialog().setItemClickListener(object : DonationDialog.OnItemClickListener{
+            override fun onClick(position: Int) {
+                itemList.remove(itemList[position])
+                adapter.notifyItemRemoved(position)
+            }
+        })
     }
 }
