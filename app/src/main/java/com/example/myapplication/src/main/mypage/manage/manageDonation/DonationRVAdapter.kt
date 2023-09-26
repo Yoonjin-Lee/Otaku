@@ -5,22 +5,20 @@ import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ListDonationBinding
 
 class DonationRVAdapter(private val itemList : ArrayList<DonationData>, val context : Context) : RecyclerView.Adapter<DonationRVAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: ListDonationBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var p : Int? = null
+        val button : Button = binding.donationBtnCheck
         fun bind(data: DonationData) {
             binding.donationName.text = data.name
             binding.donationMoney.text = data.price
-            binding.donationBtnCheck.setOnClickListener {
-                val intent = Intent(context, DonationDialog::class.java)
-                intent.putExtra("position", p)
-                Log.d("adapter_position", "${p}")
-                context.startActivity(intent)
-            }
         }
 
         fun setData(position: Int){
@@ -36,18 +34,13 @@ class DonationRVAdapter(private val itemList : ArrayList<DonationData>, val cont
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(itemList[position])
         holder.setData(position)
+        holder.button.setOnClickListener {
+            val intent = Intent(context, DonationDialog::class.java)
+            intent.putExtra("position", position)
+            (context as AppCompatActivity).startActivityForResult(intent, 1)
+        }
     }
 
     override fun getItemCount(): Int = itemList.size
-
-    interface OnItemClickListener{
-        fun onClick(position : Int)
-    }
-
-    fun setItemClickListener(onItemClickListener: OnItemClickListener){
-        this.itemClickListener = onItemClickListener
-    }
-
-    private var itemClickListener: OnItemClickListener? = null
 
 }
