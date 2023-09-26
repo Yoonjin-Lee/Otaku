@@ -1,5 +1,7 @@
 package com.example.myapplication.src.main.mypage.manage.manageDonation
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -20,8 +22,9 @@ class DonationDialog(
         window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         binding.logoutYes.setOnClickListener {
-            itemClickListener?.onClick(position)
-            Log.d("dialog_position2", "${position}")
+            val resultIntent = Intent()
+            resultIntent.putExtra("position", position)
+            setResult(Activity.RESULT_OK, resultIntent)
             this.finish()
         }
 
@@ -29,14 +32,4 @@ class DonationDialog(
             this.finish()
         }
     }
-
-    interface OnItemClickListener{
-        fun onClick(position : Int)
-    }
-
-    fun setItemClickListener(onItemClickListener: OnItemClickListener){
-        this.itemClickListener = onItemClickListener
-    }
-
-    private var itemClickListener: OnItemClickListener? = null
 }
