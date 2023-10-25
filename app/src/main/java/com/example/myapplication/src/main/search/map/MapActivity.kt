@@ -33,63 +33,63 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
 
         val postList: ArrayList<PostData> = arrayListOf()
 
-        postList.apply {
-            add(
-                PostData(
-                    R.drawable.ic_launcher_background,
-                    "제목",
-                    "이름",
-                    "아이디",
-                    "고죠 사토루",
-                    true,
-                    true
-                )
-            )
-            add(
-                PostData(
-                    R.drawable.ic_launcher_background,
-                    "제목",
-                    "이름",
-                    "아이디",
-                    "고죠 사토루",
-                    true,
-                    true
-                )
-            )
-            add(
-                PostData(
-                    R.drawable.ic_launcher_background,
-                    "제목",
-                    "이름",
-                    "아이디",
-                    "고죠 사토루",
-                    true,
-                    true
-                )
-            )
-            add(
-                PostData(
-                    R.drawable.ic_launcher_background,
-                    "제목",
-                    "이름",
-                    "아이디",
-                    "고죠 사토루",
-                    true,
-                    true
-                )
-            )
-            add(
-                PostData(
-                    R.drawable.ic_launcher_background,
-                    "제목",
-                    "이름",
-                    "아이디",
-                    "고죠 사토루",
-                    true,
-                    true
-                )
-            )
-        }
+//        postList.apply {
+//            add(
+//                PostData(
+//                    R.drawable.ic_launcher_background,
+//                    "제목",
+//                    "이름",
+//                    "아이디",
+//                    "고죠 사토루",
+//                    true,
+//                    true
+//                )
+//            )
+//            add(
+//                PostData(
+//                    R.drawable.ic_launcher_background,
+//                    "제목",
+//                    "이름",
+//                    "아이디",
+//                    "고죠 사토루",
+//                    true,
+//                    true
+//                )
+//            )
+//            add(
+//                PostData(
+//                    R.drawable.ic_launcher_background,
+//                    "제목",
+//                    "이름",
+//                    "아이디",
+//                    "고죠 사토루",
+//                    true,
+//                    true
+//                )
+//            )
+//            add(
+//                PostData(
+//                    R.drawable.ic_launcher_background,
+//                    "제목",
+//                    "이름",
+//                    "아이디",
+//                    "고죠 사토루",
+//                    true,
+//                    true
+//                )
+//            )
+//            add(
+//                PostData(
+//                    R.drawable.ic_launcher_background,
+//                    "제목",
+//                    "이름",
+//                    "아이디",
+//                    "고죠 사토루",
+//                    true,
+//                    true
+//                )
+//            )
+//        }
 
         val postRVAdapter = PostRVAdapter(postList, this)
         binding.mapRv.adapter = postRVAdapter
@@ -99,19 +99,19 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
         binding.mapKakaoMap.setPOIItemEventListener(this)
 
         //마커 등록
-        binding.mapKakaoMap.addPOIItem(
-            makeMarker(
-                PostData(
-                    R.drawable.ic_launcher_background,
-                    "고죠 사토루 생카",
-                    "이름",
-                    "아이디",
-                    "고죠 사토루",
-                    true,
-                    true
-                )
-            )
-        )
+//        binding.mapKakaoMap.addPOIItem(
+//            makeMarker(
+//                PostData(
+//                    R.drawable.ic_launcher_background,
+//                    "고죠 사토루 생카",
+//                    "이름",
+//                    "아이디",
+//                    "고죠 사토루",
+//                    true,
+//                    true
+//                )
+//            )
+//        )
     }
 
     class CustomBalloonAdapter(layoutInflater: LayoutInflater) : CalloutBalloonAdapter {

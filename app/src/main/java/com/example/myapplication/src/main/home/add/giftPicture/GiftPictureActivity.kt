@@ -10,6 +10,7 @@ import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityGiftPictureBinding
 import com.example.myapplication.src.main.home.add.addAccount.AddAccountActivity
+import com.example.myapplication.src.main.home.add.addContent.AddContentActivity
 
 class GiftPictureActivity : BaseActivity<ActivityGiftPictureBinding>(ActivityGiftPictureBinding::inflate) {
     // Registers a photo picker activity launcher in single-select mode.
@@ -40,7 +41,7 @@ class GiftPictureActivity : BaseActivity<ActivityGiftPictureBinding>(ActivityGif
 
         binding.giftPictureBtnNext.setOnClickListener {
             if (binding.giftPictureImgShow.drawable != null){
-                val intent = Intent(this, AddAccountActivity::class.java)
+                val intent = Intent(this, AddContentActivity::class.java)
                 startActivity(intent)
             } else {
                 showToast(getString(R.string.fill_picture))
