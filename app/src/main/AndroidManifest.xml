@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
+        android:name=".config.ApplicationClass"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -27,17 +29,19 @@
 <!--            <meta-data android:name="photopicker_activity:0:required" android:value="" />-->
 <!--        </service>-->
 
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="0b6120b496785aece22be5c346493385"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="8fdfc36b147e600bf5e4c7385032ff64"/>
 
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.ingit pull origin maintent.action.VIEW" />
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
                 <data android:host="oauth"
-                    android:scheme="kakao0b6120b496785aece22be5c346493385" />
+                    android:scheme="kakao8fdfc36b147e600bf5e4c7385032ff64" />
             </intent-filter>
         </activity>
 
@@ -45,17 +49,15 @@
             android:name=".src.main.MainActivity"
             android:exported="true">
 
+        </activity>
+        <activity android:name=".config.BaseActivity"/>
+        <activity android:name=".src.login.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-        <activity android:name=".config.BaseActivity"/>
-        <activity android:name=".src.login.LoginActivity"
-            android:exported="true">
-
 
         </activity>
         <activity android:name=".src.main.home.add.AddActivity"/>
@@ -67,8 +69,6 @@
         <activity android:name=".src.main.search.category.CategoryActivity"/>
         <activity android:name=".src.main.search.map.MapActivity"
             android:exported="true">
-
-
         </activity>
         <activity android:name=".src.main.search.post.PostActivity"/>
         <activity android:name=".src.main.search.post.donate.DonateActivity"/>

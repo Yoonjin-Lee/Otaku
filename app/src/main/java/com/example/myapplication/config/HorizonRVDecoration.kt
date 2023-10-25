@@ -1,4 +1,4 @@
-package com.example.myapplication.src.main.mypage
+package com.example.myapplication.config
 
 import android.graphics.Rect
 import android.view.View

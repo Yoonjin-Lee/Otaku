@@ -1,9 +1,10 @@
 package com.example.myapplication.config
 
 import android.media.Image
+import android.net.Uri
 
 data class PostData (
-    val image : Int,
+    val image : Uri,
     val title : String,
     val name : String,
     val id : String,

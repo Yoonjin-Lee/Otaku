@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ListPostBinding
 import com.example.myapplication.src.main.search.post.PostActivity
@@ -15,7 +16,9 @@ class PostRVAdapter(private val postList : ArrayList<PostData>, val context : Co
     inner class ViewHolder(private val binding: ListPostBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: PostData) {
-            binding.postImage.setImageResource(data.image)
+            Glide.with(context)
+                .load(data.image)
+                .into(binding.postImage)
             binding.postTitle.text = data.title
             binding.postName.text = data.name
             binding.postId.text = data.id

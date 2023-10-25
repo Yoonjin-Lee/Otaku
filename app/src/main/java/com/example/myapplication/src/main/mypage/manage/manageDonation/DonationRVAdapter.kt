@@ -20,10 +20,6 @@ class DonationRVAdapter(private val itemList : ArrayList<DonationData>, val cont
             binding.donationName.text = data.name
             binding.donationMoney.text = data.price
         }
-
-        fun setData(position: Int){
-            this.p = position
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,7 +29,6 @@ class DonationRVAdapter(private val itemList : ArrayList<DonationData>, val cont
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(itemList[position])
-        holder.setData(position)
         holder.button.setOnClickListener {
             val intent = Intent(context, DonationDialog::class.java)
             intent.putExtra("position", position)

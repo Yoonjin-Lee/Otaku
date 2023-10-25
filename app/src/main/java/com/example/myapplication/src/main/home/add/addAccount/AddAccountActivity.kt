@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityAddAccountBinding
+import com.example.myapplication.src.main.MainActivity
 import com.example.myapplication.src.main.home.add.addContent.AddContentActivity
 
 class AddAccountActivity :
@@ -24,13 +25,15 @@ class AddAccountActivity :
             if (binding.addAccountEditMoney.text != null) {
                 if (money != "0") {
                     if (binding.addAccountEditName.text != null && binding.addAccountEditAccount.text != null) {
-                        val intent = Intent(this, AddContentActivity::class.java)
+                        val intent = Intent(this, MainActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         startActivity(intent)
                     } else{
                         showToast(getString(R.string.fill_all))
                     }
                 } else {
-                    val intent = Intent(this, AddContentActivity::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(intent)
                 }
             }

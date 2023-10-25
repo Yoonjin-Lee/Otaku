@@ -3,10 +3,13 @@ package com.example.myapplication.src.login
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
+import android.content.Intent.FLAG_ACTIVITY_NO_HISTORY
 import android.os.Bundle
 import android.util.Log
+import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityLoginBinding
+import com.example.myapplication.src.login.models.PostSignUpRequest
 import com.example.myapplication.src.main.MainActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.KakaoSdk
@@ -14,13 +17,14 @@ import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
+import org.json.JSONObject
 
 
-class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
+class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate),
+    LoginActivityView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        KakaoSdk.init(this, "0b6120b496785aece22be5c346493385")
         var keyHash = Utility.getKeyHash(this)
         Log.d("KeyHash : ", keyHash)
 
@@ -29,9 +33,36 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         }
     }
 
+    override fun onPostSignUpSuccess(response: String) {
+        val data = JSONObject(response).getJSONObject("data")
+        Log.d("Retrofit2", data.toString())
+
+        val accessToken = data.getString("accessToken")
+        val refreshToken = data.getString("refreshToken")
+        val editer = ApplicationClass.sSharedPreferences.edit()
+        editer.putString("accessToken", accessToken).apply()
+        editer.putString("refreshToken", refreshToken).apply()
+
+        Log.d(
+            "shared_accessToken",
+            ApplicationClass.sSharedPreferences.getString("accessToken", "") ?: "없음"
+        )
+
+        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+    }
+
+    override fun onPostSignUpFail(message: String) {
+        Log.d("Retrofit2_Error", message)
+    }
+
+
     private fun startKaKaoLogin() {
         // 카카오계정으로 로그인 공통 callback 구성
         // 카카오톡으로 로그인 할 수 없어 카카오계정으로 로그인할 경우 사용됨
+        Log.d("kakaoLogin", "함수 성공")
+
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
                 Log.e(TAG, "카카오계정으로 로그인 실패", error)
@@ -47,12 +78,17 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                                     "\n이메일: ${user.kakaoAccount?.email}"
                         )
 
+                        // 닉네임, 이메일 가져오기
                         val userNickname = user.kakaoAccount?.profile?.nickname
+                        val userEmail = user.kakaoAccount?.email
 
-                        //서버 통신 완료 후 넘어 가기
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
-                        startActivity(intent)
+                        //통신
+                        LoginService(this).tryPostSignUp(
+                            PostSignUpRequest(
+                                userNickname ?: "",
+                                userEmail ?: ""
+                            )
+                        )
                     }
                 }
             }
@@ -85,11 +121,15 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 
                             // 이메일, 닉네임 가져오기
                             val userNickname = user.kakaoAccount?.profile?.nickname
+                            val userEmail = user.kakaoAccount?.email
 
-                            //서버 통신 완료 후 넘어 가기
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                            intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
-                            startActivity(intent)
+                            // 통신
+                            LoginService(this).tryPostSignUp(
+                                PostSignUpRequest(
+                                    userNickname ?: "",
+                                    userEmail ?: ""
+                                )
+                            )
                         }
                     }
                 }

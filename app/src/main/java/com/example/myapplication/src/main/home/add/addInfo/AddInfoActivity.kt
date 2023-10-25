@@ -3,6 +3,7 @@ package com.example.myapplication.src.main.home.add.addInfo
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
@@ -97,19 +98,21 @@ class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBind
             etc = radioButton(binding.addInfoBtnCategoryEtc, etc)
         }
 
-        val twtName = binding.infoTxtTwitName.text.toString()
-        val twtId = binding.infoAddEditTwtId.text.toString()
-        val title = binding.infoTxtPostTitle.text.toString()
-        val main = binding.infoAddEditMain.text.toString()
-        val category = resultRadio()
-        val date = binding.infoAddEditDate.text.toString()
-        val place = binding.infoAddEditPlace.text.toString()
-
         binding.infoBtnClose.setOnClickListener {
             this.finish()
         }
 
         binding.infoBtnNext.setOnClickListener {
+            val twtName = binding.infoTxtTwitName.text.toString()
+            val twtId = binding.infoAddEditTwtId.text.toString()
+            val title = binding.infoTxtPostTitle.text.toString()
+            val main = binding.infoAddEditMain.text.toString()
+            val category = resultRadio()
+            val date = binding.infoAddEditDate.text.toString()
+            val place = binding.infoAddEditPlace.text.toString()
+
+            Log.d("category", category)
+
             if (
                 twtName.isNotEmpty() &&
                 twtId.isNotEmpty() &&

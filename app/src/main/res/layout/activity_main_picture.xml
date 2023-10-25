@@ -92,6 +92,6 @@
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/btn_rectangle"
-        android:text="@string/finish"/>
+        android:text="@string/next"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

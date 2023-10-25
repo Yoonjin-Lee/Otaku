@@ -11,6 +11,7 @@ import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityMainPictureBinding
 import com.example.myapplication.src.main.MainActivity
+import com.example.myapplication.src.main.home.add.addAccount.AddAccountActivity
 
 class MainPictureActivity : BaseActivity<ActivityMainPictureBinding>(ActivityMainPictureBinding::inflate)  {
     // Registers a photo picker activity launcher in single-select mode.
@@ -41,8 +42,7 @@ class MainPictureActivity : BaseActivity<ActivityMainPictureBinding>(ActivityMai
 
         binding.mainPictureBtnNext.setOnClickListener {
             if (binding.mainPictureImgShow.drawable != null){
-                val intent = Intent(this, MainActivity::class.java)
-                intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
+                val intent = Intent(this, AddAccountActivity::class.java)
                 startActivity(intent)
             } else {
                 showToast(getString(R.string.fill_picture))
