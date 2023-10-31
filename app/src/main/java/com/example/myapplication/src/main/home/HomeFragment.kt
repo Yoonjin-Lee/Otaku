@@ -47,6 +47,7 @@ class HomeFragment :
             }
             postList.add(
                 PostData(
+                    obj.getInt("eventId"),
                     obj.getString("featuredImage").toUri(),
                     obj.getString("name"),
                     obj.getString("xNickname"),

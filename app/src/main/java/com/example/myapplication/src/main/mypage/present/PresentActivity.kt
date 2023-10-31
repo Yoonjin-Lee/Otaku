@@ -7,16 +7,22 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
+import com.bumptech.glide.Glide
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityPresentBinding
+import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 
-class PresentActivity : BaseActivity<ActivityPresentBinding>(ActivityPresentBinding::inflate) {
+class PresentActivity : BaseActivity<ActivityPresentBinding>(ActivityPresentBinding::inflate),
+    PresentActivityView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val eventId = intent.getIntExtra("eventId", 0)
+        PresentService(this).tryGetImage(eventId)
 
         binding.presentBtnClose.setOnClickListener {
             this.finish()
@@ -32,8 +38,9 @@ class PresentActivity : BaseActivity<ActivityPresentBinding>(ActivityPresentBind
             saveMediaToStorage(img, filename)
         }
     }
+
     //이미지를 저장하는 함수
-    private fun saveMediaToStorage(bitmap: Bitmap, filename : String) {
+    private fun saveMediaToStorage(bitmap: Bitmap, filename: String) {
 
         // Output stream
         var fos: OutputStream? = null
@@ -54,14 +61,16 @@ class PresentActivity : BaseActivity<ActivityPresentBinding>(ActivityPresentBind
 
                 // Inserting the contentValues to
                 // contentResolver and getting the Uri
-                val imageUri: Uri? = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+                val imageUri: Uri? =
+                    resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
 
                 // Opening an outputstream with the Uri that we got
                 fos = imageUri?.let { resolver.openOutputStream(it) }
             }
         } else {
             // These for devices running on android < Q
-            val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+            val imagesDir =
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
             val image = File(imagesDir, filename)
             fos = FileOutputStream(image)
         }
@@ -71,5 +80,18 @@ class PresentActivity : BaseActivity<ActivityPresentBinding>(ActivityPresentBind
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
             showToast("사진을 저장하였습니다")
         }
+    }
+
+    override fun onGetImageSuccess(response: String) {
+        val data = JSONObject(response).getJSONObject("data")
+        Log.d("Retrofit", "$data")
+        binding.presentTxtEvent.text = data.getString("name")
+        Glide.with(this)
+            .load(data.getString("perksImage"))
+            .into(binding.presentImgShow)
+    }
+
+    override fun onGetImageFail(message: String) {
+        Log.d("Retrofit", message)
     }
 }

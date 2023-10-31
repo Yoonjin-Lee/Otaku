@@ -4,6 +4,7 @@ import android.media.Image
 import android.net.Uri
 
 data class PostData (
+    val eventId : Int,
     val image : Uri,
     val title : String,
     val name : String,

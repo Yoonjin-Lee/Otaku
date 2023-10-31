@@ -150,6 +150,19 @@
                     android:layout_marginTop="6dp"/>
 
                 <TextView
+                    android:id="@+id/post_txt_donated_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/post_txt_donated"
+                    app:layout_constraintTop_toBottomOf="@id/post_txt_main"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="6dp"/>
+
+                <TextView
                     android:id="@+id/post_txt_donated_won"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -157,7 +170,7 @@
                     android:textColor="@color/black"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/post_txt_donated"
+                    app:layout_constraintStart_toEndOf="@id/post_txt_donated_money"
                     app:layout_constraintTop_toBottomOf="@id/post_txt_main"
                     android:layout_marginTop="6dp"/>
 
@@ -185,13 +198,25 @@
                     android:layout_marginTop="6dp"/>
 
                 <TextView
+                    android:id="@+id/post_txt_donation_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="11sp"
+                    android:textColor="@color/deep_gray"
+                    app:layout_constraintStart_toEndOf="@id/post_txt_donation"
+                    app:layout_constraintTop_toBottomOf="@id/post_txt_main"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginStart="5dp"/>
+
+                <TextView
                     android:id="@+id/post_txt_donation_won"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="원 목표 ("
                     android:textColor="@color/deep_gray"
                     android:textSize="11sp"
-                    app:layout_constraintStart_toEndOf="@id/post_txt_donation"
+                    app:layout_constraintStart_toEndOf="@id/post_txt_donation_money"
                     app:layout_constraintTop_toBottomOf="@id/post_txt_main"
                     android:layout_marginTop="6dp"/>
 

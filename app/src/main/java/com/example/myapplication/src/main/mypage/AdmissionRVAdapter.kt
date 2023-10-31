@@ -21,6 +21,7 @@ class AdmissionRVAdapter(private val itemList: ArrayList<AdmissionData>, val con
             binding.listAdmissionBtn.setOnClickListener {
                 val intent = Intent(context, AdmissionActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+                intent.putExtra("eventId", data.eventId)
                 context.startActivity(intent)
             }
         }
