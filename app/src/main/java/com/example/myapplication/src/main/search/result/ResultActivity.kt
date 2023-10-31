@@ -16,6 +16,9 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(ActivityResultBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val postList: ArrayList<PostData> = arrayListOf()
+        val postRVAdapter = PostRVAdapter(postList, this)
+
         binding.resultSearch.setQuery(intent.getStringExtra("query"), false)
         binding.resultSearch.clearFocus()
 
@@ -30,24 +33,6 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(ActivityResultBinding
                 return true
             }
         })
-
-        val postList: ArrayList<PostData> = arrayListOf()
-
-//        postList.apply {
-//            add(
-//                PostData(
-//                    R.drawable.ic_launcher_background,
-//                    "제목",
-//                    "이름",
-//                    "아이디",
-//                    "고죠 사토루",
-//                    true,
-//                    true
-//                )
-//            )
-//        }
-
-        val postRVAdapter = PostRVAdapter(postList, this)
 
         binding.resultRv.adapter = postRVAdapter
         binding.resultRv.layoutManager = LinearLayoutManager(this)

@@ -19,6 +19,7 @@ class PresentRVAdapter(private val itemList : ArrayList<AdmissionData>, val cont
             binding.listPresentTxtDate.text = data.date
             binding.listPresentBtn.setOnClickListener {
                 val intent = Intent(context, PresentActivity::class.java)
+                intent.putExtra("eventId", data.eventId)
                 context.startActivity(intent)
             }
         }

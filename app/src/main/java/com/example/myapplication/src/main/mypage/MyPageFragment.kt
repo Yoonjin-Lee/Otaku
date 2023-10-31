@@ -22,23 +22,24 @@ import retrofit2.Response
 class MyPageFragment :
     BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding::bind, R.layout.fragment_my_page),
     MyPageFragmentView {
+    private val admissionList = ArrayList<AdmissionData>()
+    private val imageList = ArrayList<AdmissionData>()
+    lateinit var admissionRVAdapter: AdmissionRVAdapter
+    lateinit var presentRVAdapter: PresentRVAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val itemList = ArrayList<AdmissionData>()
+        admissionRVAdapter = AdmissionRVAdapter(admissionList, requireContext())
+        presentRVAdapter = PresentRVAdapter(imageList, requireContext())
 
-        itemList.apply {
-            add(AdmissionData("이윤진 탄생일", "2023-03-13"))
-            add(AdmissionData("이윤진 탄생일", "2023-03-13"))
-        }
+        MyPageService(this).tryGetAdmission()
+        MyPageService(this).tryGetImage()
 
-        val admissionRVAdapter = AdmissionRVAdapter(itemList, requireContext())
         binding.myPageRvAdmission.adapter = admissionRVAdapter
         binding.myPageRvAdmission.layoutManager =
             LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         binding.myPageRvAdmission.addItemDecoration(HorizonRVDecoration(7))
 
-        val presentRVAdapter = PresentRVAdapter(itemList, requireContext())
         binding.myPageRvPresent.adapter = presentRVAdapter
         binding.myPageRvPresent.layoutManager =
             LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
@@ -59,10 +60,10 @@ class MyPageFragment :
         }
     }
 
-    override fun onPostLogoutSuccess(response: Response<String>) {
+    override fun onPostLogoutSuccess(response: String) {
         Log.d("key", ApplicationClass.sSharedPreferences.getString("accessToken", "") ?: "없음")
-        if (response.isSuccessful){
-            val data = JSONObject(response.body().toString()).getInt("status")
+        if (response != null){
+            val data = JSONObject(response).getInt("status")
             if (data == 200) {
                 val intent = Intent(context, LoginActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -76,6 +77,44 @@ class MyPageFragment :
     }
 
     override fun onPostLogoutFail(message: String) {
+        Log.d("Retrofit2_Error", message)
+    }
+
+    override fun onGetAdmissionSuccess(response: String) {
+        val data = JSONObject(response).getJSONArray("data")
+        Log.d("Retrofit", "$data")
+        for (i in 0 until data.length()){
+            val obj = data.getJSONObject(i)
+            admissionList.add(
+                AdmissionData(
+                    obj.getInt("eventId"),
+                    obj.getString("name"),
+                    obj.getString("openedDate")
+                )
+            )
+        }
+    }
+
+    override fun onGetAdmissionFail(message: String) {
+        Log.d("Retrofit2_Error", message)
+    }
+
+    override fun onGetImageSuccess(response: String) {
+        val data = JSONObject(response).getJSONArray("data")
+        Log.d("Retrofit", "$data")
+        for (i in 0 until data.length()){
+            val obj = data.getJSONObject(i)
+            imageList.add(
+                AdmissionData(
+                    obj.getInt("eventId"),
+                    obj.getString("name"),
+                    obj.getString("openedDate")
+                )
+            )
+        }
+    }
+
+    override fun onGetImageFail(message: String) {
         Log.d("Retrofit2_Error", message)
     }
 }

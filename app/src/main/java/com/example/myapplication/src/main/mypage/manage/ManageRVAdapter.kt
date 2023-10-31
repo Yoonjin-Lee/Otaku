@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapplication.databinding.ListManageBinding
 import com.example.myapplication.src.main.mypage.manage.manageSelect.ManageSelectActivity
 
@@ -12,13 +13,17 @@ class ManageRVAdapter(private val itemList : ArrayList<ManageData>, val context 
     inner class ViewHolder(private val binding: ListManageBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: ManageData) {
-            binding.postImage.setImageResource(data.image)
+            Glide.with(context)
+                .load(data.image)
+                .into(binding.postImage)
             binding.postTitle.text = data.title
             binding.postName.text = data.name
             binding.postId.text = data.id
             binding.postMain.text = data.main
             binding.postBtnDonation.setOnClickListener {
                 val intent = Intent(context, ManageSelectActivity::class.java)
+                intent.putExtra("eventId", data.eventId)
+                intent.putExtra("supportId", data.supportId)
                 context.startActivity(intent)
             }
         }

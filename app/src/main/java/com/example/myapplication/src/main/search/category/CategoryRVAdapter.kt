@@ -1,17 +1,16 @@
 package com.example.myapplication.src.main.search.category
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ListCategoryBinding
 
-class CategoryRVAdapter(private val cList : ArrayList<String>) : RecyclerView.Adapter<CategoryRVAdapter.ViewHolder>() {
+class CategoryRVAdapter(private val cList : ArrayList<CData>) : RecyclerView.Adapter<CategoryRVAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: ListCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: String) {
-            binding.listCategory.text = data
+        fun bind(data: CData) {
+            binding.listCategory.text = data.title
         }
     }
 
@@ -34,7 +33,7 @@ class CategoryRVAdapter(private val cList : ArrayList<String>) : RecyclerView.Ad
     override fun getItemCount(): Int = cList.size
 
     interface OnCategoryClickListener {
-        fun onClick(v: View, position: Int, title : String)
+        fun onClick(v: View, position: Int, data: CData)
     }
 
     fun setCategoryClickListener(onItemClickListener: OnCategoryClickListener) {
