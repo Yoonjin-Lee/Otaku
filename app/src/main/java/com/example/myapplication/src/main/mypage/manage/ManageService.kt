@@ -1,5 +1,6 @@
 package com.example.myapplication.src.main.mypage.manage
 
+import android.util.Log
 import com.example.myapplication.config.ApplicationClass
 import retrofit2.Call
 import retrofit2.Callback
@@ -10,7 +11,11 @@ class ManageService(val view: ManageActivityView) {
         val manageRetrofitInterface = ApplicationClass.sRetrofit.create(ManageRetrofitInterface::class.java)
         manageRetrofitInterface.getHostEvents().enqueue(object : Callback<String>{
             override fun onResponse(call: Call<String>, response: Response<String>) {
-                view.onGetHostEventsSuccess(response.body() as String)
+                if (response.isSuccessful){
+                    view.onGetHostEventsSuccess(response.body() as String)
+                }else{
+                    Log.d("Retrofit", "data_null")
+                }
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {

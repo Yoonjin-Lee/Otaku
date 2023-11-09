@@ -16,11 +16,13 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
 
         binding.addBtnOpenEvent.setOnClickListener {
             val intent = Intent(this, AddInfoActivity::class.java)
+            intent.putExtra("isPublic", true)
             startActivity(intent)
         }
 
         binding.addBtnClosedEvent.setOnClickListener {
             val intent = Intent(this, AddInfoActivity::class.java)
+            intent.putExtra("isPublic", false)
             startActivity(intent)
         }
 

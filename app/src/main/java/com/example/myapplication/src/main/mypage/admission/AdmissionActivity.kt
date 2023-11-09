@@ -13,7 +13,7 @@ class AdmissionActivity : BaseActivity<ActivityAdmissionBinding>(ActivityAdmissi
     private var eventId = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AdmissionService(this).tryGetAdmission(intent.getIntExtra("eventId", 0))
+        AdmissionService(this, this).tryGetAdmission(intent.getIntExtra("eventId", 0))
 
         binding.admissionBtnClose.setOnClickListener {
             this.finish()
@@ -22,7 +22,7 @@ class AdmissionActivity : BaseActivity<ActivityAdmissionBinding>(ActivityAdmissi
         binding.admissionBtnInput.setOnClickListener {
             // 입장코드가 일치한다면 넘어가기
             // 아니면 toast
-            AdmissionService(this).tryPostCode(intent.getIntExtra("eventId", 0), binding.admissionEditCode.text.toString().toInt())
+            AdmissionService(this, this).tryPostCode(intent.getIntExtra("eventId", 0), binding.admissionEditCode.text.toString().toInt())
         }
     }
 

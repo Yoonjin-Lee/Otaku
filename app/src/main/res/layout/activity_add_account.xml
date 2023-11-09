@@ -82,6 +82,23 @@
             android:layout_marginBottom="15dp"/>
 
         <TextView
+            android:id="@+id/add_account_txt_bank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_account_bank"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/add_account_edit_bank"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/btn_rectangle"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:hint="@string/add_account_name_hint"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
             android:id="@+id/add_account_txt_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

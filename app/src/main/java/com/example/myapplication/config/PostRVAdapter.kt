@@ -40,7 +40,7 @@ class PostRVAdapter(private val postList: ArrayList<PostData>, val context: Cont
                 binding.postBtnHeart.setImageResource(R.drawable.favorite_black_48dp)
             }
             if (data.donation) {
-                binding.postBtnDonation.text = "모집 완료"
+                binding.postBtnDonation.text = "모금 완료"
                 binding.postBtnDonation.setBackgroundResource(R.drawable.btn_donated_shape)
                 binding.postBtnDonation.setTextColor(Color.WHITE)
             }

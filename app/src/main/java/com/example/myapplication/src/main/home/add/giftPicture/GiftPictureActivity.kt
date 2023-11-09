@@ -1,6 +1,7 @@
 package com.example.myapplication.src.main.home.add.giftPicture
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.result.PickVisualMediaRequest
@@ -9,16 +10,21 @@ import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityGiftPictureBinding
-import com.example.myapplication.src.main.home.add.addAccount.AddAccountActivity
 import com.example.myapplication.src.main.home.add.addContent.AddContentActivity
+import com.example.myapplication.src.main.home.add.addInfo.InfoData
+import com.example.myapplication.src.main.mypage.certificate.UriUtil
+import java.io.File
 
 class GiftPictureActivity : BaseActivity<ActivityGiftPictureBinding>(ActivityGiftPictureBinding::inflate) {
+    private var giftUri : Uri? = null
     // Registers a photo picker activity launcher in single-select mode.
     val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
         // Callback is invoked after the user selects a media item or closes the
         // photo picker.
         if (uri != null) {
             Log.d("PhotoPicker", "Selected URI: $uri")
+
+            giftUri = uri
 
             Glide.with(this)
                 .load(uri)
@@ -30,6 +36,8 @@ class GiftPictureActivity : BaseActivity<ActivityGiftPictureBinding>(ActivityGif
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val infoData = intent.getSerializableExtra("infoData") as InfoData
+        Log.d("Retrofit", "$infoData")
 
         binding.giftPictureBtnClose.setOnClickListener {
             this.finish()
@@ -42,6 +50,8 @@ class GiftPictureActivity : BaseActivity<ActivityGiftPictureBinding>(ActivityGif
         binding.giftPictureBtnNext.setOnClickListener {
             if (binding.giftPictureImgShow.drawable != null){
                 val intent = Intent(this, AddContentActivity::class.java)
+                intent.putExtra("infoData", infoData)
+                intent.putExtra("giftUri", giftUri.toString())
                 startActivity(intent)
             } else {
                 showToast(getString(R.string.fill_picture))

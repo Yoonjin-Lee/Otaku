@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityManageBinding
 import org.json.JSONObject
@@ -33,15 +32,22 @@ class ManageActivity : BaseActivity<ActivityManageBinding>(ActivityManageBinding
         Log.d("Retrofit", "$array")
         for (i in 0 until array.length()){
             val obj = array.getJSONObject(i)
+            var supportId : Int
+            if (obj.isNull("supportId")){
+                supportId = -1
+            }else{
+                supportId = obj.get("supportId").toString().toInt()
+            }
             itemList.add(
                 ManageData(
                     obj.getInt("eventId"),
-                    obj.getInt("supportId"),
+                    supportId,
                     obj.getString("featuredImage").toUri(),
                     obj.getString("name"),
                     obj.getString("xNickname"),
                     obj.getString("xId"),
-                    obj.getString("subjectName")
+                    obj.getString("subjectName"),
+                    obj.getInt("code")
                 )
             )
         }

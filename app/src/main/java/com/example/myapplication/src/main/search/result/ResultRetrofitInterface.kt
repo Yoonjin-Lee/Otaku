@@ -9,4 +9,7 @@ interface ResultRetrofitInterface {
     fun getSubject(
         @Query("subject") subject: String
     ): Call<String>
+
+    @GET("/subjects/all-list")
+    fun getAllSubjects(): Call<String>
 }
