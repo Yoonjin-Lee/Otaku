@@ -12,6 +12,9 @@ class ManageSelectActivity : BaseActivity<ActivityManageSelectBinding>(ActivityM
         super.onCreate(savedInstanceState)
         val eventId = intent.getIntExtra("eventId", 0)
         val supportId = intent.getIntExtra("supportId", 0)
+        val code = intent.getIntExtra("code", 0).toString()
+
+        binding.manageSelectTxtCode.text = code
 
         binding.manageSelectBtnClose.setOnClickListener {
             this.finish()
@@ -28,6 +31,5 @@ class ManageSelectActivity : BaseActivity<ActivityManageSelectBinding>(ActivityM
             intent.putExtra("eventId", eventId)
             startActivity(intent)
         }
-
     }
 }

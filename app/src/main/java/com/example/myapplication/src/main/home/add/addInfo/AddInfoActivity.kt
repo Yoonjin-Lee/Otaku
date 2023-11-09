@@ -8,11 +8,21 @@ import android.widget.Button
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityAddInfoBinding
+import com.example.myapplication.src.main.home.add.addInfo.model.CategoryData
+import com.example.myapplication.src.main.home.add.addInfo.model.SubjectData
 import com.example.myapplication.src.main.home.add.giftPicture.GiftPictureActivity
+import org.json.JSONObject
+import java.time.LocalDate
 
-class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBinding::inflate) {
+class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBinding::inflate),
+    AddInfoActivityView {
+    private val subjectArray = ArrayList<SubjectData>()
+    private var subjectId : Int = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AddInfoService(this, this).tryGetSubjects()
+
+        val isPublic = intent.getBooleanExtra("isPublic", false)
 
         var idol = false
         var actor = false
@@ -53,22 +63,22 @@ class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBind
 
         fun resultRadio(): String {
             if (idol) {
-                return binding.addInfoBtnCategoryIdol.text.toString()
+                return binding.addInfoBtnCategoryIdol.text.toString() //0
             }
             if (actor) {
-                return binding.addInfoBtnCategoryActor.text.toString()
+                return binding.addInfoBtnCategoryActor.text.toString() //1
             }
             if (virtual) {
-                return binding.addInfoBtnCategoryVirtual.text.toString()
+                return binding.addInfoBtnCategoryVirtual.text.toString() //2
             }
             if (anime) {
-                return binding.addInfoBtnCategoryAnime.text.toString()
+                return binding.addInfoBtnCategoryAnime.text.toString() //3
             }
             if (sports) {
-                return binding.addInfoBtnCategorySports.text.toString()
+                return binding.addInfoBtnCategorySports.text.toString() //4
             }
             if (etc) {
-                return binding.addInfoBtnCategoryEtc.text.toString()
+                return binding.addInfoBtnCategoryEtc.text.toString() //5
             }
 
             return "None"
@@ -108,25 +118,85 @@ class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBind
             val title = binding.infoTxtPostTitle.text.toString()
             val main = binding.infoAddEditMain.text.toString()
             val category = resultRadio()
-            val date = binding.infoAddEditDate.text.toString()
+            val year = binding.infoAddEditDateYear.text.toString().toInt()
+            val month = binding.infoAddEditDateMonth.text.toString().toInt()
+            val day = binding.infoAddEditDateDay.text.toString().toInt()
             val place = binding.infoAddEditPlace.text.toString()
 
-            Log.d("category", category)
+            //카테고리 찾기
+            for(i in subjectArray){
+                if (main == i.name){
+                    subjectId = i.subjectId
+                    break
+                }
+            }
+
+            if (subjectId < 0){
+                AddInfoService(this, this).tryPostSubject(
+                    CategoryData(
+                        category,
+                        main
+                    )
+                )
+            }
+
+            val infoData = InfoData(
+                isPublic,
+                twtName,
+                twtId,
+                title,
+                subjectId,
+                LocalDate.of(year, month, day),
+                LocalDate.of(year, month, day),
+                place
+            )
+
+
+            Log.d("infoData", infoData.toString())
 
             if (
                 twtName.isNotEmpty() &&
                 twtId.isNotEmpty() &&
                 title.isNotEmpty() &&
-                    main.isNotEmpty() &&
-                    category.isNotEmpty() &&
-                    date.isNotEmpty() &&
-                    place.isNotEmpty()){
+                main.isNotEmpty() &&
+                category.isNotEmpty() &&
+                year.toString().isNotEmpty() &&
+                month.toString().isNotEmpty() &&
+                day.toString().isNotEmpty() &&
+                place.isNotEmpty()
+            ) {
                 val intent = Intent(this, GiftPictureActivity::class.java)
+                intent.putExtra("infoData", infoData)
                 startActivity(intent)
             } else {
                 showToast(getString(R.string.fill_all))
             }
         }
+    }
 
+    override fun onGetSubjectsSuccess(response: String) {
+        val data = JSONObject(response).getJSONArray("data")
+        for (i in 0 until data.length()){
+            val obj = data.getJSONObject(i)
+            subjectArray.add(
+                SubjectData(
+                    obj.getInt("subjectId"),
+                    obj.getString("name")
+                )
+            )
+        }
+    }
+
+    override fun onGetSubjectsFail(message: String) {
+        Log.d("Retrofit", message)
+    }
+
+    override fun onPostSubjectSuccess(response: String) {
+        subjectId = JSONObject(response).getInt("data")
+        Log.d("Retrofit", "subjectId : $subjectId")
+    }
+
+    override fun onPostSubjectFail(message: String) {
+        Log.d("Retrofit", message)
     }
 }

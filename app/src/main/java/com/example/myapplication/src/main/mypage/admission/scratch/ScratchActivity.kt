@@ -1,6 +1,7 @@
 package com.example.myapplication.src.main.mypage.admission.scratch
 
 import android.content.ContentValues
+import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
@@ -13,6 +14,7 @@ import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityScratchBinding
+import com.example.myapplication.src.main.MainActivity
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
@@ -23,9 +25,12 @@ class ScratchActivity : BaseActivity<ActivityScratchBinding>(ActivityScratchBind
     var title = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ScratchService(this).tryGetEventImage(intent.getIntExtra("eventId", 0))
 
         binding.admissionBtnClose.setOnClickListener {
-            this.finish()
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }
 
         binding.scratchBtnSave.setOnClickListener {

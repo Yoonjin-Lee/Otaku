@@ -19,6 +19,7 @@ class DonationRVAdapter(private val itemList : ArrayList<DonationData>, val cont
         fun bind(data: DonationData) {
             binding.donationName.text = data.name
             binding.donationMoney.text = data.price
+            p = data.supportLogId
         }
     }
 
@@ -31,6 +32,8 @@ class DonationRVAdapter(private val itemList : ArrayList<DonationData>, val cont
         holder.bind(itemList[position])
         holder.button.setOnClickListener {
             val intent = Intent(context, DonationDialog::class.java)
+            Log.d("Retrofit", "${holder.p}")
+            intent.putExtra("supportLogId", holder.p)
             intent.putExtra("position", position)
             (context as AppCompatActivity).startActivityForResult(intent, 1)
         }

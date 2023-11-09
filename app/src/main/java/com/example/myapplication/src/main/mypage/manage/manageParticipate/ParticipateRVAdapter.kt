@@ -19,7 +19,7 @@ class ParticipateRVAdapter(private val itemList: ArrayList<ParticipateData>, val
             binding.participateName.text = data.name
             binding.participateId.text = data.id
             binding.participateBtnCheck.setOnClickListener {
-                ManageParticipateService(this@ParticipateRVAdapter).tryPostUser(data.approvalId)
+                ManageParticipateService(this@ParticipateRVAdapter, context).tryPostUser(data.approvalId)
             }
         }
     }

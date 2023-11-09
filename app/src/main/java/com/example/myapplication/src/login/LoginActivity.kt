@@ -3,7 +3,6 @@ package com.example.myapplication.src.login
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
-import android.content.Intent.FLAG_ACTIVITY_NO_HISTORY
 import android.os.Bundle
 import android.util.Log
 import com.example.myapplication.config.ApplicationClass
@@ -12,7 +11,6 @@ import com.example.myapplication.databinding.ActivityLoginBinding
 import com.example.myapplication.src.login.models.PostSignUpRequest
 import com.example.myapplication.src.main.MainActivity
 import com.kakao.sdk.auth.model.OAuthToken
-import com.kakao.sdk.common.KakaoSdk
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.common.util.Utility
@@ -25,7 +23,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var keyHash = Utility.getKeyHash(this)
+        val keyHash = Utility.getKeyHash(this)
         Log.d("KeyHash : ", keyHash)
 
         binding.loginBtnKakao.setOnClickListener {
@@ -40,6 +38,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         val accessToken = data.getString("accessToken")
         val refreshToken = data.getString("refreshToken")
         val editer = ApplicationClass.sSharedPreferences.edit()
+        var role = false
+        if (data.getString("role") != "ROLE_USER"){
+            role = true
+        }
+        editer.putBoolean("role", role).apply()
         editer.putString("accessToken", accessToken).apply()
         editer.putString("refreshToken", refreshToken).apply()
 
@@ -81,6 +84,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                         // 닉네임, 이메일 가져오기
                         val userNickname = user.kakaoAccount?.profile?.nickname
                         val userEmail = user.kakaoAccount?.email
+
+                        val editer = ApplicationClass.sSharedPreferences.edit()
+                        editer.putString("user", userNickname).apply()
 
                         //통신
                         LoginService(this).tryPostSignUp(

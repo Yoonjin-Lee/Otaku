@@ -15,18 +15,15 @@ class ManageDonationActivity :
     private var supportId : Int = 0
     private val itemList = ArrayList<DonationData>()
     val adapter = DonationRVAdapter(itemList, this)
+    private var p : Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportId = intent.getIntExtra("supportId", 0)
-        ManageDonationService(this).tryGetSupports(supportId)
+        ManageDonationService(this, this).tryGetSupports(supportId)
 
         binding.manageDonationBtnClose.setOnClickListener {
             this.finish()
-        }
-
-        itemList.apply {
-            add(DonationData("이윤진", "10000"))
         }
 
         binding.manageDonationRv.adapter = adapter
@@ -46,14 +43,10 @@ class ManageDonationActivity :
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 // B액티비티에서 Yes 버튼을 누른 경우
-                ManageDonationService(this).tryPostSupport(supportId)
-                val p = data!!.getIntExtra("position", -1)
-                if (p >= 0) {
-                    itemList.remove(itemList[p])
-                    adapter.notifyItemRemoved(p)
-                } else {
-                    showToast("포지션 값이 잘못 들어옴")
-                }
+                p = data!!.getIntExtra("position", -1)
+                val supportLogId = itemList[p].supportLogId
+                Log.d("Retrofit", "supportLogId = $supportLogId, p = $p")
+                ManageDonationService(this, this).tryPostSupport(supportLogId)
             }
         }
     }
@@ -62,12 +55,16 @@ class ManageDonationActivity :
         val data = JSONObject(response).getJSONArray("data")
         for (i in 0 until data.length()){
             val obj = data.getJSONObject(i)
-            itemList.add(
-                DonationData(
-                    obj.getString("accountHolder"),
-                    obj.getString("supportAmount")
+            if (obj.getString("status") != "APPROVED"){
+                itemList.add(
+                    DonationData(
+                        obj.getString("accountHolder"),
+                        obj.getString("supportAmount"),
+                        obj.getInt("supportLogId")
+                    )
                 )
-            )
+            }
+            Log.d("Retrofit", "id : ${obj.getInt("supportLogId")}")
         }
         adapter.notifyDataSetChanged()
     }
@@ -80,6 +77,12 @@ class ManageDonationActivity :
         val data = JSONObject(response).getString("data")
         Log.d("Retrofit", "$data")
         showToast("후원을 성공적으로 확인했습니다.")
+        if (p >= 0) {
+            itemList.remove(itemList[p])
+            adapter.notifyItemRemoved(p)
+        } else {
+            showToast("포지션 값이 잘못 들어옴")
+        }
     }
 
     override fun onPostSupportFail(message: String) {

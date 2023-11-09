@@ -32,7 +32,7 @@ class CategoryActivity : BaseActivity<ActivityCategoryBinding>(ActivityCategoryB
             override fun onClick(v: View, position: Int, data: CData) {
                 val intent = Intent(this@CategoryActivity, MapActivity::class.java)
                 intent.putExtra("title", data.title)
-                intent.putExtra("id", data.id)
+                intent.putExtra("subjectId", data.id)
                 startActivity(intent)
             }
         })

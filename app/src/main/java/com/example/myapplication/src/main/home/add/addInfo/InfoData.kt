@@ -1,13 +1,15 @@
 package com.example.myapplication.src.main.home.add.addInfo
 
-data class InfoData(
-    val public : Boolean
-)
+import java.time.LocalDate
 
-//"xNickname": "string",
-//"xId": "string",
-//"name": "string",
-//"subjectId": 0,
-//"openedDate": "2023-10-27",
-//"closedDate": "2023-10-27",
-//"address": "string",
+data class InfoData(
+    val isPublic : Boolean,
+    val xNickname: String,
+    val xId: String,
+    val name: String,
+    val subjectId: Int,
+    val openedDate: LocalDate,
+    val closedDate: LocalDate,
+    val address: String,
+) : java.io.Serializable
+

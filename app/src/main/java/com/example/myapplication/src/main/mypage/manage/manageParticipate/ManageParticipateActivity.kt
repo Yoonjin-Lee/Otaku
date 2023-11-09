@@ -14,10 +14,11 @@ class ManageParticipateActivity :
     ManageParticipateActivityView {
     private val itemList = ArrayList<ParticipateData>()
     val adapter = ParticipateRVAdapter(itemList, this)
+    private var p : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ManageParticipateService(this).tryGetUsers(intent.getIntExtra("eventId", 0))
+        ManageParticipateService(this, this).tryGetUsers(intent.getIntExtra("eventId", 0))
 
         binding.manageParticipateBtnClose.setOnClickListener {
             this.finish()
@@ -28,8 +29,10 @@ class ManageParticipateActivity :
         binding.manageParticipateRv.addItemDecoration(RecyclerViewDecoration(8))
         adapter.setItemClickListener(object: ParticipateRVAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-                itemList.remove(itemList[position])
-                adapter.notifyItemRemoved(position)
+                p = position
+                ManageParticipateService(this@ManageParticipateActivity, this@ManageParticipateActivity).tryPostUser(
+                    itemList[position].approvalId
+                )
             }
         })
     }
@@ -38,13 +41,15 @@ class ManageParticipateActivity :
         val data = JSONObject(response).getJSONArray("data")
         for (i in 0 until data.length()){
             val obj = data.getJSONObject(i)
-            itemList.add(
-                ParticipateData(
-                    obj.getInt("approvalId"),
-                    obj.getString("xNickname"),
-                    obj.getString("xId")
+            if (obj.getString("status") != "APPROVED"){
+                itemList.add(
+                    ParticipateData(
+                        obj.getInt("approvalId"),
+                        obj.getString("xNickname"),
+                        obj.getString("xId")
+                    )
                 )
-            )
+            }
         }
         adapter.notifyDataSetChanged()
     }
@@ -54,6 +59,8 @@ class ManageParticipateActivity :
     }
 
     override fun onPostUserSuccess(response: String) {
+        itemList.remove(itemList[p])
+        adapter.notifyItemRemoved(p)
         showToast("승인되었습니다")
     }
 

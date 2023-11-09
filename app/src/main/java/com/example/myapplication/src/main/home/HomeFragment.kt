@@ -4,13 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
-import com.example.myapplication.config.BaseFragment
-import com.example.myapplication.config.PostData
-import com.example.myapplication.config.PostRVAdapter
-import com.example.myapplication.config.RecyclerViewDecoration
+import com.example.myapplication.config.*
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.src.main.home.add.AddActivity
 import org.json.JSONObject
@@ -22,7 +20,7 @@ class HomeFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         postRVAdapter = PostRVAdapter(postList, requireContext())
-        HomeService(this).tryGetEvents()
+        HomeService(this, requireContext()).tryGetEvents()
 
         binding.homeRv.adapter = postRVAdapter
         binding.homeRv.layoutManager = LinearLayoutManager(context)
@@ -30,8 +28,12 @@ class HomeFragment :
         binding.homeRv.addItemDecoration(RecyclerViewDecoration(5))
 
         binding.homeBtnAdd.setOnClickListener {
-            val intent = Intent(context, AddActivity::class.java)
-            startActivity(intent)
+            if (ApplicationClass.sSharedPreferences.getBoolean("role", false)){
+                val intent = Intent(context, AddActivity::class.java)
+                startActivity(intent)
+            }else{
+                Toast.makeText(context, "개최자만 등록할 수 있습니다", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

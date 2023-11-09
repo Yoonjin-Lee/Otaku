@@ -24,6 +24,7 @@ class ManageRVAdapter(private val itemList : ArrayList<ManageData>, val context 
                 val intent = Intent(context, ManageSelectActivity::class.java)
                 intent.putExtra("eventId", data.eventId)
                 intent.putExtra("supportId", data.supportId)
+                intent.putExtra("code", data.code)
                 context.startActivity(intent)
             }
         }

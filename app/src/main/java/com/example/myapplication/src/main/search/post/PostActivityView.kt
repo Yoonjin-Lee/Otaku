@@ -7,4 +7,10 @@ interface PostActivityView {
     fun onPostWishListFail(message : String)
     fun onPostWishCancelSuccess(response: String)
     fun onPostWishCancelFail(message: String)
+    fun onPostReportSuccess(response: String)
+    fun onPostReportFail(message: String)
+    fun onPostEventPublicSuccess(response: String)
+    fun onPostEventPublicFail(message: String)
+    fun onGetAllSubjectsSuccess(response: String)
+    fun onGetAllSubjectsFail(message: String)
 }

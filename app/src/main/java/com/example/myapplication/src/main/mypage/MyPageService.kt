@@ -1,18 +1,24 @@
 package com.example.myapplication.src.main.mypage
 
+import android.content.Context
+import android.util.Log
 import com.example.myapplication.config.ApplicationClass
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.create
 
-class MyPageService(val view: MyPageFragmentView) {
+class MyPageService(val view: MyPageFragmentView, val context: Context) {
     fun tryPostLogout() {
         val myPageRetrofitInterface =
             ApplicationClass.sRetrofit.create(MyPageRetrofitInterface::class.java)
         myPageRetrofitInterface.postLogout().enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
-                view.onPostLogoutSuccess(response.body() as String)
+                if (response.isSuccessful){
+                    view.onPostLogoutSuccess(response.body() as String)
+                }else{
+                    Log.d("Retrofit", "data null")
+                }
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {

@@ -60,6 +60,7 @@
     <string name="add_account_name"><b>예금주</b></string>
     <string name="add_account_name_hint">후원을 받는 경우에만 입력해주세요.</string>
     <string name="add_account_account"><b>계좌</b></string>
+    <string name="add_account_bank"><b>은행명</b></string>
     
 <!--  activity_add_content  -->
     <string name="add_content_title"><b>이벤트 설명</b></string>
@@ -72,6 +73,7 @@
 <!--  activity_post  -->
     <string name="post_notification">게시물 신고</string>
     <string name="post_donation"><b>후원하기</b></string>
+    <string name="post_participate"><b>참여하기</b></string>
 
 <!--  activity_join  -->
     <string name="join_title"><b>참여하기</b></string>
