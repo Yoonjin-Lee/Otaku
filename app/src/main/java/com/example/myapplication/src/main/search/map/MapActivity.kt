@@ -13,6 +13,8 @@ import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.config.PostData
 import com.example.myapplication.config.PostRVAdapter
 import com.example.myapplication.databinding.ActivityMapBinding
+import com.example.myapplication.src.main.home.add.addInfo.model.CategoryData
+import com.example.myapplication.src.main.home.add.addInfo.model.SubjectData
 import com.example.myapplication.src.main.search.post.PostActivity
 import net.daum.mf.map.api.CalloutBalloonAdapter
 import net.daum.mf.map.api.MapPOIItem
@@ -25,10 +27,8 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
 
     private val postList: ArrayList<PostData> = arrayListOf()
     private val postRVAdapter = PostRVAdapter(postList, this)
-    private var eventId = 0
-    private var title = ""
-    private var latitude = 0.0
-    private var longitude = 0.0
+    private var mapList : ArrayList<MapPOIItem> = arrayListOf()
+    private var index = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -153,7 +153,7 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
             }
             val postData = PostData(
                 obj.getInt("eventId"),
-                obj.getString("featuredImage").toUri(),
+                obj.getString("featuredImage"),
                 obj.getString("name"),
                 obj.getString("xNickname"),
                 obj.getString("xId"),
@@ -162,14 +162,20 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
                 donation
             )
             postList.add(postData)
+
+            val mapPOIItem = MapPOIItem()
+            mapPOIItem.apply {
+                itemName = postData.title
+                isCustomImageAutoscale = true
+                markerType = MapPOIItem.MarkerType.RedPin
+                tag = postData.eventId
+            }
+            mapList.add(mapPOIItem)
+
             //마커 표시
             //위도 경도 받고
-            if(obj.getString("address") != "null" && obj.getString("address") != "string"){
-                title = postData.title
-                eventId = postData.eventId
+            if(obj.getString("address") != "null"){
                 MapService(this).tryGetLocation("KakaoAK b091b92d0d3d2a989a7759df2fa60ec5", obj.getString("address"))
-//                val marker = makeMarker(postData, latitude, longitude)
-//                binding.mapKakaoMap.addPOIItem(marker)
             }else{
                 Log.d("Retrofit", "주소 데이터 없음")
             }
@@ -186,11 +192,13 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
         val data = JSONObject(response).getJSONArray("documents")
         if (data.length() > 0){
             val obj = data.getJSONObject(0)
-            latitude = obj.getDouble("y")
-            longitude = obj.getDouble("x")
+            val latitude = obj.getDouble("y")
+            val longitude = obj.getDouble("x")
             Log.d("Retrofit", "$latitude $longitude")
-            val marker = makeMarker(title, eventId, latitude, longitude)
+            val marker = mapList[index]
+            marker.mapPoint = MapPoint.mapPointWithGeoCoord(latitude, longitude)
             binding.mapKakaoMap.addPOIItem(marker)
+            index += 1
         } else{
             showToast("옳지 않은 주소입니다.")
         }

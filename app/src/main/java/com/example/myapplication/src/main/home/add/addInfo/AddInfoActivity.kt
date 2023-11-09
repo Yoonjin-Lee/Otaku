@@ -18,6 +18,7 @@ class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBind
     AddInfoActivityView {
     private val subjectArray = ArrayList<SubjectData>()
     private var subjectId : Int = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AddInfoService(this, this).tryGetSubjects()
@@ -113,9 +114,9 @@ class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBind
         }
 
         binding.infoBtnNext.setOnClickListener {
-            val twtName = binding.infoTxtTwitName.text.toString()
+            val twtName = binding.infoAddEditTwtName.text.toString()
             val twtId = binding.infoAddEditTwtId.text.toString()
-            val title = binding.infoTxtPostTitle.text.toString()
+            val title = binding.infoAddEditPostTitle.text.toString()
             val main = binding.infoAddEditMain.text.toString()
             val category = resultRadio()
             val year = binding.infoAddEditDateYear.text.toString().toInt()
@@ -151,7 +152,6 @@ class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBind
                 place
             )
 
-
             Log.d("infoData", infoData.toString())
 
             if (
@@ -167,6 +167,7 @@ class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBind
             ) {
                 val intent = Intent(this, GiftPictureActivity::class.java)
                 intent.putExtra("infoData", infoData)
+                intent.putExtra("subjectId", subjectId)
                 startActivity(intent)
             } else {
                 showToast(getString(R.string.fill_all))

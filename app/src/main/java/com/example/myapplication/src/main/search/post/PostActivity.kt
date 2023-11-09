@@ -106,8 +106,16 @@ class PostActivity : BaseActivity<ActivityPostBinding>(ActivityPostBinding::infl
         binding.postTxtName.text = data.getString("xNickname")
         binding.postTxtId.text = data.getString("xId")
         binding.postTxtMain.text = data.getString("subjectName")
-        binding.postTxtDonatedMoney.text = data.getString("currentAmount") ?: ""
-        binding.postTxtDonationMoney.text = data.getString("targetAmount") ?: ""
+        if (data.isNull("currentAmount")){
+            binding.postTxtDonatedMoney.text = "0"
+        }else{
+            binding.postTxtDonatedMoney.text = data.getString("currentAmount")
+        }
+        if (data.isNull("targetAmount")){
+            binding.postTxtDonatedMoney.text = "0"
+        }else{
+            binding.postTxtDonationMoney.text = data.getString("targetAmount")
+        }
         binding.postTxtContent.text = data.getString("description")
         binding.postTxtPosition.text = data.getString("address")
         var heart = data.getBoolean("wishList")

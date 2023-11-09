@@ -7,7 +7,7 @@ data class InfoData(
     val xNickname: String,
     val xId: String,
     val name: String,
-    val subjectId: Int,
+    var subjectId: Int,
     val openedDate: LocalDate,
     val closedDate: LocalDate,
     val address: String,

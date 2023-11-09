@@ -19,6 +19,8 @@ import com.example.myapplication.src.main.home.add.mainPicture.model.Request
 import com.example.myapplication.src.main.mypage.certificate.UriUtil
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.File
@@ -37,9 +39,9 @@ class MainPictureActivity :
             Log.d("PhotoPicker", "Selected URI: $uri")
 
             val mainFile = UriUtil.toFile(this, uri)
-            val mainBody = mainFile.absolutePath.toRequestBody("multipart/form-data".toMediaType())
-            Log.d("MainFile_path", mainFile.absolutePath)
-            mainPart = MultipartBody.Part.createFormData("featuredImageFile", mainFile.name, mainBody)
+//            val mainBody = mainFile.absolutePath.toRequestBody("multipart/form-data".toMediaType())
+//            Log.d("MainFile_path", mainFile.absolutePath)
+            mainPart = FormDataUtil.getImageMultipart("featuredImageFile", mainFile)
 
             Glide.with(this)
                 .load(uri)
@@ -71,9 +73,11 @@ class MainPictureActivity :
         Log.d("Retrofit", "$request")
 
         val giftFile = UriUtil.toFile(this, giftUri!!.toUri())
-        val giftBody = giftFile.absolutePath.toRequestBody("multipart/form-data".toMediaType())
-        Log.d("GiftFile_path", giftFile.absolutePath)
-        val giftPart = MultipartBody.Part.createFormData("perksImageFile", giftFile.name, giftBody)
+//        val giftBody = giftFile.absolutePath.toRequestBody("multipart/form-data".toMediaType())
+//        Log.d("GiftFile_path", giftFile.absolutePath)
+//        val giftPart = MultipartBody.Part.createFormData("perksImageFile", giftFile.name, giftBody)
+
+        val giftPart = FormDataUtil.getImageMultipart("perksImageFile", giftFile)
 
         binding.mainPictureBtnClose.setOnClickListener {
             this.finish()
@@ -151,5 +155,20 @@ object UriUtil {
         val ext = context.contentResolver.getType(uri)!!.split("/").last()
 
         return "$name.$ext"
+    }
+}
+
+object FormDataUtil {
+    // File -> Multipart
+    fun getImageMultipart(key: String, file: File): MultipartBody.Part {
+        return MultipartBody.Part.createFormData(
+            name = key,
+            filename = file.name,
+            body = file.asRequestBody("image/*".toMediaType())
+        )
+    }
+    // String -> RequestBody
+    fun getTextRequestBody(string: String): RequestBody {
+        return string.toRequestBody("text/plain".toMediaType())
     }
 }
