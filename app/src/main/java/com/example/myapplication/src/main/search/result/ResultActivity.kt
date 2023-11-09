@@ -81,7 +81,7 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(ActivityResultBinding
             postList.add(
                 PostData(
                     obj.getInt("eventId"),
-                    obj.getString("featuredImage").toUri(),
+                    obj.getString("featuredImage"),
                     obj.getString("name"),
                     obj.getString("xNickname"),
                     obj.getString("xId"),

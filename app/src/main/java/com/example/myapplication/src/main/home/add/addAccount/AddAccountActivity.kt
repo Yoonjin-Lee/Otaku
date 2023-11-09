@@ -20,16 +20,19 @@ class AddAccountActivity :
         val eventId = intent.getIntExtra("eventId", 0)
 
         binding.addAccountBtnClose.setOnClickListener {
-            this.finish()
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }
 
         binding.addAccountBtnNext.setOnClickListener {
-            val money = binding.addAccountEditMoney.text.toString().toInt()
-            val name = binding.addAccountEditName.text.toString()
-            val account = binding.addAccountEditAccount.text.toString()
-            val bank = binding.addAccountEditBank.text.toString()
-            if (binding.addAccountEditMoney.text != null) {
-                if (money != 0) {
+            Log.d("Retrofit", "${binding.addAccountEditMoney.text.isNotEmpty()}")
+            if (binding.addAccountEditMoney.text.isNotEmpty()) {
+                val money = binding.addAccountEditMoney.text.toString()
+                val name = binding.addAccountEditName.text.toString()
+                val account = binding.addAccountEditAccount.text.toString()
+                val bank = binding.addAccountEditBank.text.toString()
+                if (money.toInt() != 0) {
                     if (binding.addAccountEditName.text != null &&
                         binding.addAccountEditAccount.text != null &&
                         binding.addAccountEditBank.text != null
@@ -40,17 +43,17 @@ class AddAccountActivity :
                                 bank,
                                 account,
                                 name,
-                                money
+                                money.toInt()
                             )
                         )
                     } else {
                         showToast(getString(R.string.fill_all))
                     }
-                } else {
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(intent)
                 }
+            }else {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
             }
         }
     }

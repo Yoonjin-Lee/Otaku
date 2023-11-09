@@ -39,6 +39,10 @@ class GiftPictureActivity : BaseActivity<ActivityGiftPictureBinding>(ActivityGif
         val infoData = intent.getSerializableExtra("infoData") as InfoData
         Log.d("Retrofit", "$infoData")
 
+        if (infoData.subjectId < 0){
+            infoData.subjectId = intent.getIntExtra("subjectId", 0)
+        }
+
         binding.giftPictureBtnClose.setOnClickListener {
             this.finish()
         }

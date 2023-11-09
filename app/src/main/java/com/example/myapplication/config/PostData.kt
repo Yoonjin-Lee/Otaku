@@ -5,7 +5,7 @@ import android.net.Uri
 
 data class PostData (
     val eventId : Int,
-    val image : Uri,
+    val image : String,
     val title : String,
     val name : String,
     val id : String,

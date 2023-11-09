@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ListPostBinding
 import com.example.myapplication.src.main.search.post.PostActivity
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import org.json.JSONObject
 
 class PostRVAdapter(private val postList: ArrayList<PostData>, val context: Context) :
