@@ -47,10 +47,10 @@ class PostRVAdapter(private val postList: ArrayList<PostData>, val context: Cont
             }
             binding.postBtnDonation.setOnClickListener {
                 // 게시물 화면으로 넘어가기
-                val intent = Intent(context, PostActivity::class.java)
-                intent.putExtra("eventId", data.eventId)
-                intent.putExtra("donation", data.donation)
-                context.startActivity(intent)
+//                val intent = Intent(context, PostActivity::class.java)
+//                intent.putExtra("eventId", data.eventId)
+//                intent.putExtra("donation", data.donation)
+//                context.startActivity(intent)
             }
         }
     }
@@ -63,6 +63,12 @@ class PostRVAdapter(private val postList: ArrayList<PostData>, val context: Cont
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(postList[position])
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, PostActivity::class.java)
+            intent.putExtra("eventId", postList[position].eventId)
+            intent.putExtra("donation", postList[position].donation)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = postList.size
