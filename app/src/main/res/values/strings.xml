@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">O!TAKU</string>
 
 <!--  activity_base  -->
     <string name="fill_all">모든 정보를 입력해주세요.</string>
@@ -40,7 +40,7 @@
     <string name="add_info_place"><b>장소</b></string>
     <string name="add_info_idol">아이돌</string>
     <string name="add_info_actor">배우</string>
-    <string name="add_info_virtual">버츄얼</string>
+    <string name="add_info_virtual">버추얼</string>
     <string name="add_info_anime">애니</string>
     <string name="add_info_sports">스포츠</string>
     <string name="add_info_etc">기타</string>

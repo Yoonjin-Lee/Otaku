@@ -54,6 +54,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         val intent = Intent(this@LoginActivity, MainActivity::class.java)
         intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
+        this.finish()
     }
 
     override fun onPostSignUpFail(message: String) {
