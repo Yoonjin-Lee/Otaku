@@ -17,7 +17,7 @@
 
     <item
         android:id="@+id/main_heart"
-        android:icon="@drawable/heart"
+        android:icon="@drawable/favorite_border_black_48dp"
         android:enabled="true"
         android:title=""
         />
