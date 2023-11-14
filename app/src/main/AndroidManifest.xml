@@ -2,7 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <application
+        android:name=".config.ApplicationClass"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -10,33 +17,75 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:usesCleartextTraffic="true">
+
+<!--        <service android:name="com.google.android.gms.metadata.ModuleDependencies"-->
+<!--            android:enabled="false"-->
+<!--            android:exported="false"-->
+<!--            tools:ignore="MissingClass">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />-->
+<!--            </intent-filter>-->
+<!--            <meta-data android:name="photopicker_activity:0:required" android:value="" />-->
+<!--        </service>-->
+
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="8fdfc36b147e600bf5e4c7385032ff64"/>
 
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.ingit pull origin maintent.action.VIEW" />
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
                 <data android:host="oauth"
-                    android:scheme="kakao0b6120b496785aece22be5c346493385" />
+                    android:scheme="kakao8fdfc36b147e600bf5e4c7385032ff64" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".src.main.MainActivity"
             android:exported="true">
+
+        </activity>
+        <activity android:name=".config.BaseActivity"/>
+        <activity android:name=".src.login.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".config.BaseActivity"/>
-        <activity android:name=".src.login.LoginActivity"
-            android:exported="true">
 
+        </activity>
+        <activity android:name=".src.main.home.add.AddActivity"/>
+        <activity android:name=".src.main.home.add.addContent.AddContentActivity"/>
+        <activity android:name=".src.main.home.add.mainPicture.MainPictureActivity"/>
+<!--        -->
+        <activity android:name=".src.main.home.add.addAccount.AddAccountActivity"/>
+        <activity android:name=".src.main.home.add.addInfo.AddInfoActivity"/>
+        <activity android:name=".src.main.home.add.giftPicture.GiftPictureActivity"/>
+        <activity android:name=".src.main.search.category.CategoryActivity"/>
+        <activity android:name=".src.main.search.map.MapActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".src.main.search.post.PostActivity"/>
+        <activity android:name=".src.main.search.post.donate.DonateActivity"/>
+        <activity android:name=".src.main.search.post.join.JoinActivity"/>
+        <activity android:name=".src.main.search.result.ResultActivity"/>
+        <activity android:name=".src.main.mypage.admission.AdmissionActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".src.main.mypage.admission.scratch.ScratchActivity"/>
+        <activity android:name=".src.main.mypage.present.PresentActivity"/>
+        <activity android:name=".src.main.mypage.manage.ManageActivity"/>
+        <activity android:name=".src.main.mypage.manage.manageDonation.ManageDonationActivity"/>
+        <activity android:name=".src.main.mypage.certificate.CertificateActivity"/>
+        <activity android:name=".src.main.mypage.manage.manageParticipate.ManageParticipateActivity"/>
+        <activity android:name=".src.main.mypage.manage.manageSelect.ManageSelectActivity"/>
+        <activity android:name=".src.main.mypage.manage.manageDonation.DonationDialog"
+            android:theme="@style/mytheme">
         </activity>
     </application>
 

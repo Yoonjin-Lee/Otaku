@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="135dp"
+    android:background="@drawable/round_background"
+    android:padding="12dp"
+    >
+
+    <ImageView
+        android:id="@+id/post_image"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/post_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="제목"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/post_image"
+        android:textColor="@color/black"
+        android:layout_marginStart="12dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/post_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개최자 이름"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/post_image"
+        app:layout_constraintTop_toBottomOf="@id/post_title"
+        android:layout_marginStart="12dp"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/post_slice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_slice"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/post_name"
+        app:layout_constraintTop_toBottomOf="@id/post_title"
+        android:layout_marginHorizontal="1dp"/>
+
+    <TextView
+        android:id="@+id/post_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/post_slice"
+        app:layout_constraintTop_toBottomOf="@id/post_title"
+        android:layout_marginStart="1dp"/>
+
+    <TextView
+        android:id="@+id/post_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="이벤트 주인공"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/post_image"
+        app:layout_constraintEnd_toStartOf="@id/post_btn_donation"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toBottomOf="@id/post_name"/>
+
+    <Button
+        android:id="@+id/post_btn_donation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:minWidth="0dp"
+        android:text="@string/manage_btn"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:includeFontPadding="false"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="11dp"
+        android:background="@drawable/btn_rectangle"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

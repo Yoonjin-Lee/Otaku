@@ -22,25 +22,25 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     R.id.main_home -> {
                         supportFragmentManager
                             .beginTransaction()
-                            .replace(binding.mainFrm.id, HomeFragment()) //homefragment
+                            .replace(binding.mainFrm.id, HomeFragment())
                             .commitAllowingStateLoss()
                     }
                     R.id.main_search -> {
                         supportFragmentManager
                             .beginTransaction()
-                            .replace(binding.mainFrm.id, SearchFragment()) //homefragment
+                            .replace(binding.mainFrm.id, SearchFragment())
                             .commitAllowingStateLoss()
                     }
                     R.id.main_heart -> {
                         supportFragmentManager
                             .beginTransaction()
-                            .replace(binding.mainFrm.id, HeartFragment()) //homefragment
+                            .replace(binding.mainFrm.id, HeartFragment())
                             .commitAllowingStateLoss()
                     }
                     R.id.main_my_page ->{
                         supportFragmentManager
                             .beginTransaction()
-                            .replace(binding.mainFrm.id, MyPageFragment()) //homefragment
+                            .replace(binding.mainFrm.id, MyPageFragment())
                             .commitAllowingStateLoss()
                     }
                 }

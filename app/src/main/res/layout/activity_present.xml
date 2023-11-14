@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/present_btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:contentDescription="@string/next"
+        android:paddingVertical="23dp"
+        android:paddingStart="17dp"
+        android:src="@drawable/back_arrow_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/present_txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="23dp"
+        android:text="@string/present_title"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/present_view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="23dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/present_txt_title" />
+
+    <TextView
+        android:id="@+id/present_txt_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="제목"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/present_view_line"
+        android:layout_margin="19dp"/>
+
+    <ImageView
+        android:id="@+id/present_img_show"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/present_btn_save"
+        app:layout_constraintTop_toBottomOf="@id/present_txt_event"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="19dp"
+        android:scaleType="centerCrop"/>
+
+    <Button
+        android:id="@+id/present_btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/present_save"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_donated_shape"
+        android:layout_margin="19dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

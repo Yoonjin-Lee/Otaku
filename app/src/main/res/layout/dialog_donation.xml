@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.main.mypage.manage.manageDonation.DonationDialog"
+    android:background="@drawable/round_background"
+    android:backgroundTint="@color/white">
+
+    <LinearLayout
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:background="@drawable/round_background">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/error"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp">
+        </ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="계좌 확인!"
+            android:textColor="#C12E2E"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="5dp">
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="실제로 금액 만큼 입금되었는지 확인했나요?"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            android:textAlignment="center"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:background="@drawable/round_background">
+
+            <Button
+                android:id="@+id/logout_no"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_round"
+                android:backgroundTint="#ECECEC"
+                android:baselineAligned="false"
+                android:text="아니요"
+                android:textColor="#7A7A7A"
+                android:textStyle="bold">
+
+
+            </Button>
+
+            <Button
+                android:id="@+id/logout_yes"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:text="네"
+                android:background="@drawable/bottom_round"
+                android:textColor="@color/white"
+                android:textStyle="bold">
+
+            </Button>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
