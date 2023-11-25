@@ -22,6 +22,6 @@
 
 #### 프로토타입
 디자인 - 이윤진, 황지영
-![Figma](https://www.figma.com/file/It3HuKg6wTZEGdauTwnuiJ/O!taku?type=design&mode=design&t=3mpZAevH8tmUZTgd-1)  
+[Figma](https://www.figma.com/file/It3HuKg6wTZEGdauTwnuiJ/O!taku?type=design&mode=design&t=3mpZAevH8tmUZTgd-1)  
 
 #### 시연 영상
