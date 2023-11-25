@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=250&section=header&text=O!TAKU&fontSize=90)
+![header](https://capsule-render.vercel.app/api?type=waving&color=FAC0FF&height=250&section=header&text=O!TAKU&fontSize=90&fontColor=ffffff)
 
 건국대학교 스마트ict융합공학과 종합설계2  
 : 이벤트 개최 보조 안드로이드 애플리케이션  
@@ -21,7 +21,7 @@
 😁 좋아하는 대상의 이벤트를 지도로 한 번에 확인
 
 #### 프로토타입
-디자인 - 이윤진, 황지영
+디자인 - 이윤진, 황지영  
 [Figma](https://www.figma.com/file/It3HuKg6wTZEGdauTwnuiJ/O!taku?type=design&mode=design&t=3mpZAevH8tmUZTgd-1)  
 
 #### 시연 영상
