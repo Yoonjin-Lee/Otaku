@@ -64,6 +64,7 @@ class MyPageFragment :
         }
 
         binding.myPageBtnLogout.setOnClickListener {
+//            Toast.makeText(context, "대회 중엔 데이터 문제로 지원하지 않습니다,", Toast.LENGTH_LONG).show()
             MyPageService(this, requireContext()).tryPostLogout()
         }
     }
