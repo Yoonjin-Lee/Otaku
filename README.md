@@ -25,4 +25,4 @@
 [Figma](https://www.figma.com/file/It3HuKg6wTZEGdauTwnuiJ/O!taku?type=design&mode=design&t=3mpZAevH8tmUZTgd-1)  
 
 #### 시연 영상
-<iframe width="560" height="315" src="https://www.youtube.com/embed/D6Kd346o_Y4?si=nLCt13wHaDs9XWQ5&amp;start=23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Video Label](http://img.youtube.com/vi/D6Kd346o_Y4&t=49s/0.jpg)](https://youtu.be/D6Kd346o_Y4&t=49s)
