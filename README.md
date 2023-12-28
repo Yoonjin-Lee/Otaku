@@ -25,4 +25,4 @@
 [Figma](https://www.figma.com/file/It3HuKg6wTZEGdauTwnuiJ/O!taku?type=design&mode=design&t=3mpZAevH8tmUZTgd-1)  
 
 #### 시연 영상
-[![Video Label](http://img.youtube.com/vi/D6Kd346o_Y4&t=49s/0.jpg)](https://youtu.be/D6Kd346o_Y4&t=49s)
+[![시연영상](http://img.youtube.com/vi/ecl-Pii8Jw4&t=13s/0.jpg)](https://www.youtube.com/watch?v=ecl-Pii8Jw4&t=13s)
