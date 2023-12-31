@@ -3,7 +3,7 @@
 건국대학교 스마트ict융합공학과 종합설계2  
 : 이벤트 개최 보조 안드로이드 애플리케이션  
 
-<img src="https://github.com/Yoonjin-Lee/Otaku/assets/71547678/ac04f761-ac92-4a84-80ca-870aff75e0a9" height="100%">
+<img src="https://github.com/Yoonjin-Lee/Otaku/assets/71547678/ac04f761-ac92-4a84-80ca-870aff75e0a9" width="50%" height="100%">
 
 개발 기간
 ---
