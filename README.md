@@ -13,6 +13,10 @@
 ---
 ![android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white) ![kotlin](https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white)  
 
+  Android | Kotlin | ViewBinding | Github  
+  MVP 모델 적용  
+  Retrofit2 | Okhttp3 | Glide | ScratchView | KakaoMap 라이브러리 사용
+
 프로젝트 소개
 ---
 #### 이제는 하나의 문화로 자리 잡은 생일 카페!
@@ -21,6 +25,13 @@
 😃 개최자 관리를 위한 입장권 기능  
 😄 후원 받기 기능으로 개최자의 부담 절감  
 😁 좋아하는 대상의 이벤트를 지도로 한 번에 확인  
+
+#### 기능
+- 카테고리 별 이벤트 정보 지도 기능
+- 디지털 입장권 및 특전 기능
+- 이벤트 개최 및 후원 기능
+- 참여한 이벤트 로그 제공
+- Kakao 로그인 기능
 
 #### 프로토타입
 디자인 - 이윤진, 황지영  
