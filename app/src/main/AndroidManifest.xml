@@ -30,7 +30,7 @@
 <!--            <meta-data android:name="photopicker_activity:0:required" android:value="" />-->
 <!--        </service>-->
 
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="8fdfc36b147e600bf5e4c7385032ff64"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value=""/>
 
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
@@ -42,7 +42,7 @@
 
                 <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
                 <data android:host="oauth"
-                    android:scheme="kakao8fdfc36b147e600bf5e4c7385032ff64" />
+                    android:scheme="kakao" />
             </intent-filter>
         </activity>
 
