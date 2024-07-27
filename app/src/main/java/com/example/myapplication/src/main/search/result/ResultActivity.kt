@@ -24,25 +24,9 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(ActivityResultBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val query = intent.getStringExtra("query")
-//        binding.resultSearch.setQuery(query, false)
-//        binding.resultSearch.clearFocus()
         binding.resultAuto.setText(query)
         ResultService(this).tryGetSubject(query!!)
         ResultService(this).tryGetAllSubjects()
-
-//        binding.resultSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                // 서버에서 정보 받아와서 넣기..?
-//                postList.clear()
-//                ResultService(this@ResultActivity).tryGetSubject(query!!)
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                // 구현은 가능한데 어떻게 구현할 지 서버랑 이야기 해봐야 할 듯
-//                return true
-//            }
-//        })
 
         binding.resultBtnSearch.setOnClickListener {
             postList.clear()
@@ -74,9 +58,9 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(ActivityResultBinding
         Log.d("Retrofit", "$array")
         for(i in 0 until array.length()){
             val obj = array.getJSONObject(i)
-            var donation = false
-            if (obj.getString("status") != "PREPARATION"){
-                donation = true
+            var donation = true
+            if (obj.getString("status") == "UNDEFINED"){
+                donation = false
             }
             postList.add(
                 PostData(

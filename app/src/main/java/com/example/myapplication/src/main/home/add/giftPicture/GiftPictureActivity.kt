@@ -12,8 +12,6 @@ import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityGiftPictureBinding
 import com.example.myapplication.src.main.home.add.addContent.AddContentActivity
 import com.example.myapplication.src.main.home.add.addInfo.InfoData
-import com.example.myapplication.src.main.mypage.certificate.UriUtil
-import java.io.File
 
 class GiftPictureActivity : BaseActivity<ActivityGiftPictureBinding>(ActivityGiftPictureBinding::inflate) {
     private var giftUri : Uri? = null

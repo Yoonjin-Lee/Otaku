@@ -27,7 +27,9 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
 
     private val postList: ArrayList<PostData> = arrayListOf()
     private val postRVAdapter = PostRVAdapter(postList, this)
+    // 위치와 이벤트 내용 일치를 위한 리스트
     private var mapList : ArrayList<MapPOIItem> = arrayListOf()
+    // 위치와 이벤트 내용 일치를 위한 인덱스
     private var index = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,11 +37,18 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
         val subjectId = intent.getIntExtra("subjectId", 0)
         MapService(this).tryGetList(subjectId)
 
+        // 화면 유입 경로에 따른 지도 시점 설정
+        // 카테고리로 들어 왔을 경우
         if (intent.getStringExtra("address").isNullOrEmpty()){
-            binding.mapKakaoMap.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(37.539182674872, 127.074711902268), true)
+            binding.mapKakaoMap.setMapCenterPoint(
+                MapPoint.mapPointWithGeoCoord(37.539182674872, 127.074711902268),
+                true)
             Log.d("Retrofit", "초기 위치 없음")
-        }else{
-            MapService(this).tryGetFirstLocation("KakaoAK b091b92d0d3d2a989a7759df2fa60ec5", intent.getStringExtra("address").toString())
+        }else{ // 특정 이벤트의 위치를 보고 싶은 경우
+            // intent로 받은 주소 값으로 시점 설정
+            MapService(this).tryGetFirstLocation(
+                "KakaoAK b091b92d0d3d2a989a7759df2fa60ec5",
+                intent.getStringExtra("address").toString())
         }
 
         binding.mapTxtTitle.text = intent.getStringExtra("title")
@@ -113,7 +122,8 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
     override fun onCalloutBalloonOfPOIItemTouched(p0: MapView?, p1: MapPOIItem?) {
     }
 
-    //말풍선 클릭 시
+    // 말풍선 클릭 시
+    // 이벤트 페이지로 이동
     override fun onCalloutBalloonOfPOIItemTouched(
         p0: MapView?,
         p1: MapPOIItem?,
@@ -141,6 +151,7 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
         return marker
     }
 
+    // 이벤트 리스트 수신
     override fun onGetListSuccess(response: String) {
         val data = JSONObject(response).getJSONObject("data")
         val array = data.getJSONArray("content")
@@ -187,16 +198,20 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
         Log.d("Retrofit", message)
     }
 
+    // 이벤트 주소의 위도, 경도로 마커 표시하기
     override fun onGetLocationSuccess(response: String) {
         //데이터 받기
         val data = JSONObject(response).getJSONArray("documents")
+        // 데이터가 있으면
         if (data.length() > 0){
             val obj = data.getJSONObject(0)
             val latitude = obj.getDouble("y")
             val longitude = obj.getDouble("x")
             Log.d("Retrofit", "$latitude $longitude")
+            // index 순서의 MapPOIItem를 가져옴
             val marker = mapList[index]
             marker.mapPoint = MapPoint.mapPointWithGeoCoord(latitude, longitude)
+            // 지도에 표시
             binding.mapKakaoMap.addPOIItem(marker)
             index += 1
         } else{
@@ -208,6 +223,7 @@ class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate
         Log.d("Retrofit", message)
     }
 
+    // 초기 시점 위치 설정
     override fun onGetFirstLocationSuccess(response: String) {
         val data = JSONObject(response).getJSONArray("documents")
         if (data.length() > 0){

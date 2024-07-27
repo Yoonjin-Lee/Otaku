@@ -37,9 +37,9 @@ class HeartFragment :
         Log.d("Retrofit", "$array")
         for(i in 0 until array.length()){
             val obj = array.getJSONObject(i)
-            var donation = false
-            if (obj.getString("status") != "PREPARATION"){
-                donation = true
+            var donation = true
+            if (obj.getString("status") == "UNDEFINED"){
+                donation = false
             }
             postList.add(
                 PostData(

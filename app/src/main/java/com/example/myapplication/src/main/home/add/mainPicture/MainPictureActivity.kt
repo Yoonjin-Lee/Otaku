@@ -16,7 +16,6 @@ import com.example.myapplication.databinding.ActivityMainPictureBinding
 import com.example.myapplication.src.main.home.add.addAccount.AddAccountActivity
 import com.example.myapplication.src.main.home.add.addInfo.InfoData
 import com.example.myapplication.src.main.home.add.mainPicture.model.Request
-import com.example.myapplication.src.main.mypage.certificate.UriUtil
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody

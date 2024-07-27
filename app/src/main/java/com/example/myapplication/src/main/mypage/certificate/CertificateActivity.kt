@@ -3,7 +3,6 @@ package com.example.myapplication.src.main.mypage.certificate
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -12,19 +11,17 @@ import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityCertificateBinding
-import okhttp3.MediaType.Companion.toMediaType
+import com.example.myapplication.src.main.home.add.mainPicture.FileUtil
+import com.example.myapplication.src.main.home.add.mainPicture.FormDataUtil
+import com.example.myapplication.src.main.home.add.mainPicture.UriUtil
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.File
-import java.io.FileOutputStream
 
 
 class CertificateActivity :
     BaseActivity<ActivityCertificateBinding>(ActivityCertificateBinding::inflate),
     CertificateActivityView {
-    private var body: RequestBody? = null
     private var emptyPart: MultipartBody.Part? = null
 
     // Registers a photo picker activity launcher in single-select mode.
@@ -37,10 +34,7 @@ class CertificateActivity :
                 Log.d("PhotoPicker", "Selected URI: $uri")
 
                 val path = UriUtil.toFile(this, uri)
-
-                body = path.absolutePath.toRequestBody("multipart/form-data".toMediaType())
-                Log.d("AbsolutePath", path.absolutePath)
-                emptyPart = MultipartBody.Part.createFormData("image", path.name, body!!)
+                emptyPart = FormDataUtil.getImageMultipart("image", path)
 
                 Glide.with(this)
                     .load(uri)
@@ -90,29 +84,6 @@ class CertificateActivity :
                 showToast("사진을 등록해주세요")
             }
         }
-    }
-}
-
-object FileUtil {
-    // 임시 파일 생성
-    fun createTempFile(context: Context, fileName: String): File {
-        val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        return File(storageDir, fileName)
-    }
-
-    // 파일 내용 스트림 복사
-    fun copyToFile(context: Context, uri: Uri, file: File) {
-        val inputStream = context.contentResolver.openInputStream(uri)
-        val outputStream = FileOutputStream(file)
-
-        val buffer = ByteArray(4 * 1024)
-        while (true) {
-            val byteCount = inputStream!!.read(buffer)
-            if (byteCount < 0) break
-            outputStream.write(buffer, 0, byteCount)
-        }
-
-        outputStream.flush()
     }
 }
 

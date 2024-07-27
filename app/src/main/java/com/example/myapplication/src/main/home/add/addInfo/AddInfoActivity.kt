@@ -124,7 +124,7 @@ class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBind
             val day = binding.infoAddEditDateDay.text.toString().toInt()
             val place = binding.infoAddEditPlace.text.toString()
 
-            //카테고리 찾기
+            // 이벤트 대상 찾기
             for(i in subjectArray){
                 if (main == i.name){
                     subjectId = i.subjectId
@@ -132,6 +132,7 @@ class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBind
                 }
             }
 
+            // 이벤트 대상이 없으면 추가
             if (subjectId < 0){
                 AddInfoService(this, this).tryPostSubject(
                     CategoryData(
@@ -139,38 +140,70 @@ class AddInfoActivity : BaseActivity<ActivityAddInfoBinding>(ActivityAddInfoBind
                         main
                     )
                 )
-            }
+                val infoData = InfoData(
+                    isPublic,
+                    twtName,
+                    twtId,
+                    title,
+                    subjectId,
+                    LocalDate.of(year, month, day),
+                    LocalDate.of(year, month, day),
+                    place
+                )
 
-            val infoData = InfoData(
-                isPublic,
-                twtName,
-                twtId,
-                title,
-                subjectId,
-                LocalDate.of(year, month, day),
-                LocalDate.of(year, month, day),
-                place
-            )
+                Log.d("infoData", infoData.toString())
 
-            Log.d("infoData", infoData.toString())
+                if (
+                    twtName.isNotEmpty() &&
+                    twtId.isNotEmpty() &&
+                    title.isNotEmpty() &&
+                    main.isNotEmpty() &&
+                    category.isNotEmpty() &&
+                    year.toString().isNotEmpty() &&
+                    month.toString().isNotEmpty() &&
+                    day.toString().isNotEmpty() &&
+                    place.isNotEmpty()
+                ) {
+                    val intent = Intent(this, GiftPictureActivity::class.java)
+                    intent.putExtra("infoData", infoData)
+                    intent.putExtra("subjectId", subjectId)
+                    startActivity(intent)
+                } else {
+                    showToast(getString(R.string.fill_all))
+                }
+            }else{
+                val infoData = InfoData(
+                    isPublic,
+                    twtName,
+                    twtId,
+                    title,
+                    subjectId,
+                    LocalDate.of(year, month, day),
+                    LocalDate.of(year, month, day),
+                    place
+                )
 
-            if (
-                twtName.isNotEmpty() &&
-                twtId.isNotEmpty() &&
-                title.isNotEmpty() &&
-                main.isNotEmpty() &&
-                category.isNotEmpty() &&
-                year.toString().isNotEmpty() &&
-                month.toString().isNotEmpty() &&
-                day.toString().isNotEmpty() &&
-                place.isNotEmpty()
-            ) {
-                val intent = Intent(this, GiftPictureActivity::class.java)
-                intent.putExtra("infoData", infoData)
-                intent.putExtra("subjectId", subjectId)
-                startActivity(intent)
-            } else {
-                showToast(getString(R.string.fill_all))
+                Log.d("infoData", infoData.toString())
+
+                if (
+                    twtName.isNotEmpty() &&
+                    twtId.isNotEmpty() &&
+                    title.isNotEmpty() &&
+                    main.isNotEmpty() &&
+                    category.isNotEmpty() &&
+                    year.toString().isNotEmpty() &&
+                    month.toString().isNotEmpty() &&
+                    day.toString().isNotEmpty() &&
+                    place.isNotEmpty() &&
+                    subjectId > 0
+                ) {
+                    val intent = Intent(this, GiftPictureActivity::class.java)
+                    intent.putExtra("infoData", infoData)
+                    intent.putExtra("subjectId", subjectId)
+                    startActivity(intent)
+                } else {
+                    showToast(getString(R.string.fill_all))
+                }
             }
         }
     }

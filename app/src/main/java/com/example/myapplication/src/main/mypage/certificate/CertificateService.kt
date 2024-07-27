@@ -18,7 +18,6 @@ class CertificateService(val view: CertificateActivityView, val context: Context
                     view.onPostHostSuccess(response.body() as String)
                 }else{
                     Log.d("Retrofit", "$response")
-                    Toast.makeText(context, "실패했습니다", Toast.LENGTH_LONG)
                 }
             }
 
