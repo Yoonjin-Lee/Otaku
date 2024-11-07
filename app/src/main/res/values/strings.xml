@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">O!TAKU</string>
+
+<!--  activity_base  -->
+    <string name="fill_all">모든 정보를 입력해주세요.</string>
+    <string name="fill_picture">사진을 등록해주세요.</string>
 
 <!--  list_post  -->
     <string name="post_slice">|</string>
@@ -9,4 +13,130 @@
 <!--  fragment_home  -->
     <string name="today_event"><b>오늘의 이벤트</b></string>
 
+<!--  fragment_heart  -->
+    <string name="my_favorite"><b>관심 이벤트</b></string>
+
+<!--  activity_add  -->
+    <string name="event_register">이벤트 등록하기</string>
+    <string name="open_event"><b>공개 이벤트</b></string>
+    <string name="open_event_content">누구나 자유롭게 참여할 수 있어요!</string>
+    <string name="closed_event"><b>비공개 이벤트</b></string>
+    <string name="closed_event_content">우리끼리만 즐길래요! \n 인증 절차를 거친 사람만 참여할 수 있어요!</string>
+    <string name="next"><b>다음</b></string>
+
+<!--  activity_picture  -->
+    <string name="picture_title"><b>참여자 인증 사진 등록</b></string>
+    <string name="picture_content">참여자에게 예시로 제시할 사진을 등록해주세요</string>
+    <string name="picture_register"><b>등록</b></string>
+    <string name="picture_hint">사진 파일명</string>
+
+<!--  activity_add_info  -->
+    <string name="add_info_twt_name"><b>개최자 트위터 닉네임</b></string>
+    <string name="add_info_twt_id"><b>개최자 트위터 아이디</b></string>
+    <string name="add_info_title"><b>제목</b></string>
+    <string name="add_info_main"><b>이벤트 주인공</b></string>
+    <string name="add_info_category"><b>카테고리</b></string>
+    <string name="add_info_date"><b>날짜</b></string>
+    <string name="add_info_place"><b>장소</b></string>
+    <string name="add_info_idol">아이돌</string>
+    <string name="add_info_actor">배우</string>
+    <string name="add_info_virtual">버추얼</string>
+    <string name="add_info_anime">애니</string>
+    <string name="add_info_sports">스포츠</string>
+    <string name="add_info_etc">기타</string>
+
+<!--  activity_main_picture  -->
+    <string name="main_picture_title"><b>대표 사진 등록</b></string>
+    <string name="main_picture_content">게시물에서 보일 사진을 등록해주세요</string>
+    <string name="finish"><b>완료</b></string>
+
+<!--  activity_gift_picture  -->
+    <string name="gift_picture_title"><b>특전 사진 등록</b></string>
+    <string name="gift_picture_content">참여자에게 선물로 나눔할 사진을 등록해주세요</string>
+
+<!--  activity_add_account  -->
+    <string name="add_account_money"><b>후원 받을 금액</b></string>
+    <string name="add_account_money_hint">후원은 필수가 아닙니다!</string>
+    <string name="add_account_name"><b>예금주</b></string>
+    <string name="add_account_name_hint">후원을 받는 경우에만 입력해주세요.</string>
+    <string name="add_account_account"><b>계좌</b></string>
+    <string name="add_account_bank"><b>은행명</b></string>
+    
+<!--  activity_add_content  -->
+    <string name="add_content_title"><b>이벤트 설명</b></string>
+    <string name="add_content_hint">ex) 개최 취지, 후원 금액 사용 계획 등을 작성해주세요</string>
+    <string name="add_content_fill_all">이벤트에 대한 설명을 적어주세요.</string>
+
+<!--  activity_map  -->
+    <string name="map_drag_title"><b>이벤트 리스트</b></string>
+
+<!--  activity_post  -->
+    <string name="post_notification">게시물 신고</string>
+    <string name="post_donation"><b>후원하기</b></string>
+    <string name="post_participate"><b>참여하기</b></string>
+
+<!--  activity_join  -->
+    <string name="join_title"><b>참여하기</b></string>
+    <string name="join_name"><b>참여자 트위터 닉네임</b></string>
+    <string name="join_id"><b>참여자 트위터 아이디</b></string>
+
+<!--  activity_donate  -->
+    <string name="donate_title">후원하기</string>
+    <string name="donate_step1"><b>Step1.</b> 후원 계좌에 후원하기</string>
+    <string name="donate_bank_owner">예금주 : </string>
+    <string name="donate_step2"><b>Step2.</b> 후원 인증하기</string>
+    <string name="donate_step2_info">후원 후 본인의 계좌번호, 이름, 후원 금액이 보이도록 화면을 캡처해주세요.</string>
+    <string name="donate_step2_info2">* 예시와 같이 정상적인 입금 화면이 보이도록 스크린샷을 찍어주셔야 합니다.</string>
+    <string name="donate_step3"><b>Step3.</b> 후원 금액 입력하기</string>
+    <string name="donate_register"><b>등록하기</b></string>
+
+<!--  fragment_my_page  -->
+    <string name="my_page_register">개최자 등록</string>
+    <string name="my_page_admission">입장권</string>
+    <string name="my_page_present">특전</string>
+    <string name="my_page_event_manage">이벤트 관리</string>
+    <string name="my_page_manage">관리</string>
+    <string name="my_page_loggout"><b>탈퇴하기</b></string>
+
+<!--  list_admission  -->
+    <string name="list_admission">입장</string>
+    <string name="list_look">보기</string>
+
+<!--  activity_admission  -->
+    <string name="admission_title"><b>입장권</b></string>
+    <string name="admission_input">입력</string>
+    <string name="admission_hint">입장 코드를 입력해주세요</string>
+
+<!--  activity_scratch  -->
+    <string name="scratch_check"><b>이미지 저장</b></string>
+
+<!--  activity_present  -->
+    <string name="present_title"><b>특전</b></string>
+    <string name="present_save">저장</string>
+
+<!--  activity_manage  -->
+    <string name="manage_title"><b>이벤트 관리</b></string>
+
+<!--  list_manage  -->
+    <string name="manage_btn">관리하기</string>
+
+<!--  activity_manage_select  -->
+    <string name="manage_donation"><b>후원 관리</b></string>
+    <string name="manage_participate"><b>참여자 관리</b></string>
+    <string name="manage_code">입장 코드</string>
+    
+<!--  activity_manage_donation  -->
+    <string name="manage_donation_list"><b>후원 목록</b></string>
+
+<!--  list_donation  -->
+    <string name="donation_check">확인</string>
+
+<!--  activity_manage_participate  -->
+    <string name="participate_list"><b>참여자 목록</b></string>
+
+<!--  activity_certificate  -->
+    <string name="certificate_title"><b>개최자 인증</b></string>
+    <string name="certificate_info1"><b>트위터 프로필 화면 캡처를 통해
+예시와 같이 등록해주세요</b></string>
+    <string name="certificate_info2">캡처가 제대로 되지 않은 경우 인증이 어려울 수 있습니다.</string>
 </resources>

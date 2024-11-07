@@ -1,6 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/search_img_logo"
+        android:layout_width="119dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/o_taku"
+        android:layout_marginStart="19dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/search_search"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="검색어를 입력해주세요"
+        android:maxLines="1"
+        android:singleLine="true"
+        tools:ignore="SpeakableTextPresentCheck"
+        app:layout_constraintTop_toBottomOf="@id/search_img_logo"
+        android:background="@drawable/btn_donating_shape"
+        android:layout_marginStart="19dp"
+        app:iconifiedByDefault="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/result_btn_search" />
+
+    <ImageButton
+        android:id="@+id/result_btn_search"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/search"
+        android:backgroundTint="#00000000"
+        app:layout_constraintStart_toEndOf="@id/search_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/search_search"
+        android:contentDescription="@string/next"
+        android:layout_marginStart="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/search_search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="9dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/search_btn_idol"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_idol"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:id="@+id/search_btn_actor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_actor"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/search_btn_virtual"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_virtual"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:id="@+id/search_btn_anime"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_anime"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/search_btn_sports"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_sports"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:id="@+id/search_btn_etc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add_info_etc"
+                android:background="@drawable/btn_rectangle"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
