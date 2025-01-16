@@ -1,6 +1,6 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=FAC0FF&height=250&section=header&text=O!TAKU&fontSize=90&fontColor=ffffff)
 
-건국대학교 스마트ict융합공학과 종합설계2  
+<!--건국대학교 스마트ict융합공학과 종합설계2-->
 : 이벤트 개최 보조 안드로이드 애플리케이션  
 
 개발 기간
