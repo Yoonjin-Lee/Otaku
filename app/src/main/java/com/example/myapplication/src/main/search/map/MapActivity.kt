@@ -24,7 +24,7 @@ import org.json.JSONObject
 
 class MapActivity : BaseActivity<ActivityMapBinding>(ActivityMapBinding::inflate),
     MapView.MapViewEventListener, MapView.POIItemEventListener, MapActivityView {
-
+    // 슬라이드 패널에 들어가는 이벤트 정보 리스트
     private val postList: ArrayList<PostData> = arrayListOf()
     private val postRVAdapter = PostRVAdapter(postList, this)
     // 위치와 이벤트 내용 일치를 위한 리스트
